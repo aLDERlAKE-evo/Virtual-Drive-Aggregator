@@ -28,3 +28,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+#fix cancel button issue whenever cancelling a compression process
