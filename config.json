@@ -1,0 +1,8 @@
+{
+  "chunk_mb": 8,
+  "compression": "store",
+  "theme": "darkly",
+  "backup_nodes": [],
+  "backup_enabled": false,
+  "max_workers": 4
+}
