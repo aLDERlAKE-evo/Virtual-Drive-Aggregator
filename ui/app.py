@@ -42,13 +42,13 @@ class App:
         self.root.title("vdrive — Virtual Aggregated Drive Manager")
         self.root.geometry("1300x860")
 
-        # ── Apply saved theme ─────────────────────────────────────────────
+        # Apply saved theme
         try:
             self.root.style.theme_use(self.cfg.theme)
         except Exception:
             pass
 
-        # ── State ─────────────────────────────────────────────────────────
+        # State
         self.selected_drives: List[str] = []
         self.index    = IndexManager([])
         self.splitter: Optional[Splitter] = None
@@ -59,16 +59,19 @@ class App:
 
         self.backup_client = BackupClient(list(self.cfg.backup_nodes))
 
-        # ── Executor ──────────────────────────────────────────────────────
+        # Executor
         self.executor = ThreadPoolExecutor(max_workers=self.cfg.max_workers)
         self._futures: List[Future] = []
         self._fut_lock = threading.Lock()
 
-        # ── Sync watcher ──────────────────────────────────────────────────
+        # Session encryption key (derived at Confirm Drives time)
+        self._session_key: bytes | None = None
+
+        # Sync watcher
         self.sync_enabled  = True
         self.sync_observer: Optional[Observer] = None
 
-        # ── Drive monitor ─────────────────────────────────────────────────
+        # Drive monitor
         self.drive_monitor = DriveMonitor(
             cfg=self.cfg,
             on_change=self._on_drive_change,
@@ -76,20 +79,13 @@ class App:
         )
         self.drive_monitor.start()
 
-        # ── Build UI ──────────────────────────────────────────────────────
         self._build_ui()
 
-        # ── Periodic tasks ────────────────────────────────────────────────
         self._update_storage_info()
-        self._refresh_drives_ui()                        # initial population
+        self._refresh_drives_ui()
         self.root.after(5000, lambda: self._submit(self._refresh_server_worker))
 
-    # ── Inline speed graph proxy (avoids SpeedGraph widget entirely) ──────
     class _SpeedProxy:
-        """
-        Thin wrapper around a plain tk.Canvas that mimics SpeedGraph's
-        push() / reset() API. No widget subclassing, no ttkbootstrap clash.
-        """
         _MAX = 30
 
         def __init__(self, canvas: tk.Canvas, history: list):
@@ -130,17 +126,12 @@ class App:
                           text=f"{data[-1]:.1f} MB/s",
                           fill="white", font=("Segoe UI", 8))
 
-    # ═══════════════════════════════════════════════════════════════════════
-    # UI BUILD
-    # ═══════════════════════════════════════════════════════════════════════
-
     def _build_ui(self):
-        # ── Top bar ───────────────────────────────────────────────────────
+        # Top bar
         top = tb.Frame(self.root, padding=8)
         top.pack(fill="x")
         tb.Label(top, text="vdrive — Virtual Aggregated Drive Manager",
                  font=("Segoe UI", 15, "bold")).pack(side="left")
-
         tb.Button(top, text="⚙ Settings", bootstyle="secondary",
                   command=self._open_settings).pack(side="right", padx=4)
         tb.Button(top, text="🔧 Repair", bootstyle="warning",
@@ -151,12 +142,12 @@ class App:
         main = tb.Frame(self.root, padding=10)
         main.pack(fill="both", expand=True)
 
-        # ── Drive selection panel ─────────────────────────────────────────
+        # Drive selection panel
         drive_panel = tb.Labelframe(main, text="Drive Selection", padding=8)
         drive_panel.pack(fill="x", pady=6)
 
-        self._drive_vars:   List[tk.StringVar]      = []
-        self._drive_combos: List[ttk.Combobox]      = []
+        self._drive_vars:   List[tk.StringVar] = []
+        self._drive_combos: List[ttk.Combobox] = []
 
         drive_row = tb.Frame(drive_panel)
         drive_row.pack()
@@ -175,17 +166,11 @@ class App:
         opts_row.pack(fill="x", pady=4)
 
         self._chunk_var = tk.IntVar(value=self.cfg.chunk_mb)
-        self._comp_var  = tk.StringVar(value=self.cfg.compression)
-
-        tb.Label(opts_row, text="Chunk MB:").pack(side="left", padx=(6,4))
+        tb.Label(opts_row, text="Chunk MB:").pack(side="left", padx=(6, 4))
         tb.Combobox(opts_row, textvariable=self._chunk_var,
-                    values=[4,8,16,32,64], width=6, state="readonly").pack(side="left")
-        tb.Label(opts_row, text="Compression:").pack(side="left", padx=(14,4))
-        tb.Combobox(opts_row, textvariable=self._comp_var,
-                    values=["store","zip","lzma"], width=8, state="readonly").pack(side="left")
+                    values=[4, 8, 16, 32, 64], width=6, state="readonly").pack(side="left")
 
-        # Backup toggle
-        self._backup_var = tk.BooleanVar(value=self.cfg.backup_enabled)
+        self._backup_var    = tk.BooleanVar(value=self.cfg.backup_enabled)
         self._backup_status = tk.StringVar(value="Backup: OFF")
         tb.Checkbutton(opts_row, text="Enable Backup",
                        variable=self._backup_var, bootstyle="round-toggle",
@@ -201,7 +186,7 @@ class App:
         tb.Button(btn_row, text="Purge All", bootstyle="danger",
                   command=self._purge_all).pack(side="left", padx=6)
 
-        # ── Notebook ──────────────────────────────────────────────────────
+        # Notebook
         nb = tb.Notebook(main)
         nb.pack(fill="both", expand=True, pady=6)
 
@@ -212,7 +197,7 @@ class App:
         nb.add(server_tab, text="Server")
         nb.add(logs_tab,   text="Logs")
 
-        # ── Files tab ─────────────────────────────────────────────────────
+        # Files tab
         self.file_tree = FileTree(files_tab)
         self.file_tree.pack(fill="both", expand=True, padx=4, pady=4)
 
@@ -229,65 +214,68 @@ class App:
 
         row1 = tb.Frame(ctrl)
         row1.pack(pady=4)
-        tb.Button(row1, text="Upload File",   bootstyle="info",    command=self._upload_file_dialog,   **bstyle).pack(side="left", padx=5)
-        tb.Button(row1, text="Upload Folder", bootstyle="primary",  command=self._upload_folder_dialog, **bstyle).pack(side="left", padx=5)
-        tb.Button(row1, text="Download",      bootstyle="warning",  command=self._download_item,        **bstyle).pack(side="left", padx=5)
-        tb.Button(row1, text="Delete",        bootstyle="danger",   command=self._delete_item,          **bstyle).pack(side="left", padx=5)
-        tb.Button(row1, text="Refresh",       bootstyle="success",  command=self._do_refresh_tree,      **bstyle).pack(side="left", padx=5)
+        tb.Button(row1, text="Upload File",   bootstyle="info",
+                  command=self._upload_file_dialog,   **bstyle).pack(side="left", padx=5)
+        tb.Button(row1, text="Upload Folder", bootstyle="primary",
+                  command=self._upload_folder_dialog, **bstyle).pack(side="left", padx=5)
+        tb.Button(row1, text="Download",      bootstyle="warning",
+                  command=self._download_item,        **bstyle).pack(side="left", padx=5)
+        tb.Button(row1, text="Delete",        bootstyle="danger",
+                  command=self._delete_item,          **bstyle).pack(side="left", padx=5)
+        tb.Button(row1, text="Refresh",       bootstyle="success",
+                  command=self._do_refresh_tree,      **bstyle).pack(side="left", padx=5)
 
         row2 = tb.Frame(ctrl)
         row2.pack(pady=4)
-        tb.Button(row2, text="Pause",               bootstyle="warning", command=self._pause,               **bstyle).pack(side="left", padx=5)
-        tb.Button(row2, text="Resume",              bootstyle="success", command=self._resume,              **bstyle).pack(side="left", padx=5)
-        tb.Button(row2, text="Cancel",              bootstyle="danger",  command=self._cancel,              **bstyle).pack(side="left", padx=5)
-        tb.Button(row2, text="Restore from Server", bootstyle="primary", command=self._restore_from_server, **bstyle).pack(side="left", padx=5)
+        tb.Button(row2, text="Pause",               bootstyle="warning",
+                  command=self._pause,               **bstyle).pack(side="left", padx=5)
+        tb.Button(row2, text="Resume",              bootstyle="success",
+                  command=self._resume,              **bstyle).pack(side="left", padx=5)
+        tb.Button(row2, text="Cancel",              bootstyle="danger",
+                  command=self._cancel,              **bstyle).pack(side="left", padx=5)
+        tb.Button(row2, text="Post-process",        bootstyle="info",
+                  command=self._postprocess_item,    **bstyle).pack(side="left", padx=5)
+        tb.Button(row2, text="Restore from Server", bootstyle="primary",
+                  command=self._restore_from_server, **bstyle).pack(side="left", padx=5)
 
-        # ── Status bar + speed graph ───────────────────────────────────────
+        # Status bar + speed graph
         status_row = tb.Frame(main)
         status_row.pack(fill="x", expand=False, pady=4)
 
-        # Speed graph on the right — fixed 210x56 px, never shrinks/grows
         graph_frame = tk.Frame(status_row, width=210, height=56, bg="#1a1a2e")
         graph_frame.pack(side="right", padx=8)
         graph_frame.pack_propagate(False)
-        self._speed_canvas = tk.Canvas(graph_frame, bg="#1a1a2e",
-                                       highlightthickness=0)
+        self._speed_canvas = tk.Canvas(graph_frame, bg="#1a1a2e", highlightthickness=0)
         self._speed_canvas.pack(fill="both", expand=True)
         self._speed_history: list = []
         self.speed_graph = self._SpeedProxy(self._speed_canvas, self._speed_history)
 
-        # StatusBar fills all remaining horizontal space
         self.status_bar = StatusBar(status_row)
         self.status_bar.pack(side="left", fill="both", expand=True)
 
-        # ── Server tab ────────────────────────────────────────────────────
+        # Server tab
         self.server_list = tk.Listbox(server_tab, height=18)
         self.server_list.pack(fill="both", expand=True, padx=10, pady=10)
         srv_btns = tb.Frame(server_tab)
         srv_btns.pack(pady=6)
-        tb.Button(srv_btns, text="Refresh",  bootstyle="info",
+        tb.Button(srv_btns, text="Refresh", bootstyle="info",
                   command=lambda: self._submit(self._refresh_server_worker)).pack(side="left", padx=6)
-        tb.Button(srv_btns, text="Restore",  bootstyle="success",
+        tb.Button(srv_btns, text="Restore", bootstyle="success",
                   command=self._restore_from_server).pack(side="left", padx=6)
-        tb.Button(srv_btns, text="Delete",   bootstyle="danger",
+        tb.Button(srv_btns, text="Delete",  bootstyle="danger",
                   command=lambda: self._submit(self._delete_from_server_worker)).pack(side="left", padx=6)
 
-        # ── Logs tab ──────────────────────────────────────────────────────
+        # Logs tab
         self.log_box = tk.Text(logs_tab, bg="#0d0d0d", fg="#39ff14",
                                wrap="none", font=("Consolas", 9))
         self.log_box.pack(fill="both", expand=True)
 
-        # Optional drag-and-drop
         if _DND:
             try:
                 self.file_tree.tree.drop_target_register(DND_FILES)
                 self.file_tree.tree.dnd_bind("<<Drop>>", self._on_drop)
             except Exception:
                 pass
-
-    # ═══════════════════════════════════════════════════════════════════════
-    # DRIVE MANAGEMENT
-    # ═══════════════════════════════════════════════════════════════════════
 
     def _refresh_drives_ui(self):
         drives = list_removable_drives(self.cfg)
@@ -304,12 +292,30 @@ class App:
             messagebox.showerror("Error", "Select at least two removable drives.")
             return
 
+        self._session_key = None
+        if self.cfg.encrypt_enabled:
+            from ui.dialogs import PasswordDialog
+            pwd = PasswordDialog.ask(self.root)
+            if pwd is None:
+                return
+            from core.crypto import derive_key, new_salt
+            salt_hex = getattr(self.cfg, "_session_salt_hex", None)
+            if not salt_hex:
+                salt     = new_salt()
+                salt_hex = salt.hex()
+                self.cfg._session_salt_hex = salt_hex
+                self.cfg.save()
+            else:
+                salt = bytes.fromhex(salt_hex)
+            self._session_key = derive_key(pwd, salt)
+            self._log("Encryption enabled — session key derived ✓")
+
         self.selected_drives = [d if d.endswith("/") else d + "/" for d in chosen]
         self.index = IndexManager(self.selected_drives)
         self.drive_monitor.set_selected(self.selected_drives)
 
         self._build_splitter()
-        self._reload_index_from_disk()   # load from disk + refresh tree
+        self._reload_index_from_disk()
         self._start_sync_observer(self.selected_drives[0])
         self._auto_repair_on_startup()
         self._log(f"Drives confirmed: {self.selected_drives}")
@@ -318,14 +324,13 @@ class App:
         self.cancel_flag.clear()
         self.user_pause.clear()
         self.drive_pause.clear()
-        self.cfg.chunk_mb    = self._chunk_var.get()
-        self.cfg.compression = self._comp_var.get()
+        self.cfg.chunk_mb = self._chunk_var.get()
         self.splitter = Splitter(
-            drives      = self.selected_drives,
-            cfg         = self.cfg,
-            cancel_flag = self.cancel_flag,
-            user_pause  = self.user_pause,
-            drive_pause = self.drive_pause,
+            drives         = self.selected_drives,
+            cfg            = self.cfg,
+            cancel_flag    = self.cancel_flag,
+            user_pause     = self.user_pause,
+            drive_pause    = self.drive_pause,
             on_drive_error = self._on_drive_error_cb,
         )
 
@@ -333,10 +338,9 @@ class App:
         self.root.after(0, self._refresh_drives_ui)
         if added:
             self._log(f"Drives connected: {added}")
-            # If all selected drives are back online, reload index + clear pause
             if self.selected_drives:
                 from core.drives import list_removable_drives
-                current = set(list_removable_drives(self.cfg))
+                current  = set(list_removable_drives(self.cfg))
                 all_back = all(d in current for d in self.selected_drives)
                 if all_back:
                     self._log("All selected drives reconnected — reloading index")
@@ -355,25 +359,13 @@ class App:
     def _on_drive_error_cb(self, msg: str):
         self._log(f"Drive write error: {msg}", level="error")
 
-    # ═══════════════════════════════════════════════════════════════════════
-    # INDEX / TREE
-    # ═══════════════════════════════════════════════════════════════════════
-
     def _do_refresh_tree(self):
-        """Refresh the tree from the current in-memory index.
-        Does NOT reload from disk — that only happens at confirm/reconnect."""
         self.file_tree.refresh(self.index.snapshot())
 
     def _reload_index_from_disk(self):
-        """Load index from disk into memory, then refresh tree.
-        Call this only at startup or after a reconnect."""
         if self.selected_drives:
             self.index.load()
         self._do_refresh_tree()
-
-    # ═══════════════════════════════════════════════════════════════════════
-    # STORAGE INFO
-    # ═══════════════════════════════════════════════════════════════════════
 
     def _update_storage_info(self):
         total, free = 0, 0
@@ -391,30 +383,40 @@ class App:
             self.status_bar.storage_info.set("Total: -- | Free: --")
         self.root.after(3000, self._update_storage_info)
 
-    # ═══════════════════════════════════════════════════════════════════════
-    # UPLOAD
-    # ═══════════════════════════════════════════════════════════════════════
-
     def _upload_file_dialog(self):
         if not self.selected_drives:
             messagebox.showerror("Error", "Confirm drives first.")
             return
         p = filedialog.askopenfilename()
-        if p:
-            self._submit(self._upload_single_file, p)
+        if not p:
+            return
+        from ui.dialogs import UploadOptionsDialog
+        dlg = UploadOptionsDialog(self.root)
+        if dlg.result is None:
+            return
+        self._submit(self._upload_single_file, p, None, dlg.result)
 
     def _upload_folder_dialog(self):
         if not self.selected_drives:
             messagebox.showerror("Error", "Confirm drives first.")
             return
         folder = filedialog.askdirectory()
-        if folder:
-            self._submit(self._upload_folder, folder)
+        if not folder:
+            return
+        from ui.dialogs import UploadOptionsDialog
+        dlg = UploadOptionsDialog(self.root)
+        if dlg.result is None:
+            return
+        self._submit(self._upload_folder, folder, dlg.result)
 
-    def _upload_single_file(self, path: str, rel_override: str | None = None):
+    def _upload_single_file(
+        self,
+        path:         str,
+        rel_override: str | None = None,
+        mode:         str = "store",
+    ):
         rel = rel_override or os.path.basename(path)
 
-        # Deduplication check
         file_hash = sha256(path)
         for entry in self.index.snapshot().values():
             if isinstance(entry, dict):
@@ -423,36 +425,60 @@ class App:
                     return
 
         self._reset_flags()
-        mode = self.cfg.compression
-        tmp_archive: Optional[str] = None
+        tmp_archive:   Optional[str] = None
+        tmp_encrypted: Optional[str] = None
         placeholder = rel
 
         try:
-            src       = path
-            orig_size = os.path.getsize(path)
+            src        = path
+            orig_size  = os.path.getsize(path)
             compressed = False
             fmt        = "store"
 
             if mode in ("zip", "lzma"):
+                self.root.after_idle(lambda m=mode, r=rel: self.status_bar.current_file.set(
+                    f"Compressing ({m}): {r}…"))
                 self._log(f"Compressing {rel} ({mode})…")
-                tmp_archive = Splitter.compress(path, mode)
+                tmp_archive = self.splitter.compress(path, mode)
                 src         = tmp_archive
                 compressed  = True
                 fmt         = mode
-                placeholder = rel + ".zipbundle"
+                placeholder = rel + f".{mode}bundle"
 
-            # Resume: retrieve cached part_sizes
+            enc_salt_hex: Optional[str] = None
+            is_encrypted = bool(self._session_key)
+            if is_encrypted:
+                from core.crypto import new_iv, new_salt, derive_key
+                enc_salt     = new_salt()
+                enc_iv       = new_iv()
+                enc_salt_hex = enc_salt.hex()
+                per_file_key = derive_key(self._session_key.hex(), enc_salt)
+                self.root.after_idle(lambda r=rel: self.status_bar.current_file.set(
+                    f"Encrypting: {r}…"))
+                self._log(f"Encrypting {rel}…")
+                _enc_name     = f"vdrive_enc_{os.getpid()}_{os.path.basename(src)}.enc"
+                tmp_encrypted = os.path.join(self.splitter._tmp_dir(), _enc_name)
+                Splitter.encrypt_file(src, tmp_encrypted, per_file_key, enc_iv)
+                if tmp_archive:
+                    try: os.remove(tmp_archive)
+                    except Exception: pass
+                    tmp_archive = None
+                src = tmp_encrypted
+
             existing     = self.index.get(placeholder)
             cached_sizes = existing.get("part_sizes") if isinstance(existing, dict) else None
 
-            # Placeholder entry
             self.index.set(placeholder, build_entry(
                 [], compressed, fmt, rel, orig_size,
                 status=Status.UPLOADING, checksums={}, verified=False,
                 part_sizes=cached_sizes,
+                encrypted=is_encrypted, salt_hex=enc_salt_hex,
             ))
             self.index.save()
             self.root.after(0, self._do_refresh_tree)
+
+            self.root.after_idle(lambda r=rel: self.status_bar.current_file.set(
+                f"Splitting: {r}…"))
 
             def on_progress(done, total, eta_s, speed):
                 self.root.after_idle(lambda: (
@@ -460,12 +486,11 @@ class App:
                     self.speed_graph.push(speed),
                 ))
 
-            parts, checksums, part_sizes = self.splitter.split(
-                src, on_progress, cached_sizes
-            )
+            parts, checksums, part_sizes = self.splitter.split(src, on_progress, cached_sizes)
 
-            # Backup
             if self._backup_var.get() and self.backup_client.nodes:
+                self.root.after_idle(lambda r=rel: self.status_bar.current_file.set(
+                    f"Backing up: {r}…"))
                 self._log("Sending to backup node…")
                 self.backup_client.backup_all(parts, self.index.primary_index_path())
 
@@ -473,6 +498,7 @@ class App:
                 parts, compressed, fmt, rel, orig_size,
                 status=Status.COMPLETE, checksums=checksums, verified=True,
                 part_sizes=part_sizes,
+                encrypted=is_encrypted, salt_hex=enc_salt_hex,
             ))
             self.index.save()
             self.root.after(0, self._do_refresh_tree)
@@ -485,7 +511,6 @@ class App:
             self.root.after(0, self._do_refresh_tree)
             self._log(f"Upload cancelled: {rel}", level="warning")
         except ValueError as e:
-            # Pre-flight space check failure
             self._ui_error(str(e))
             self.index.update_status(placeholder, Status.INCOMPLETE)
             self.index.save()
@@ -496,13 +521,14 @@ class App:
             self._ui_error(f"Upload failed: {e}")
             self._log(f"Upload error ({rel}): {e}", level="error")
         finally:
-            if tmp_archive and os.path.exists(tmp_archive):
-                try: os.remove(tmp_archive)
-                except Exception: pass
+            for _tmp in [tmp_archive, tmp_encrypted]:
+                if _tmp and os.path.exists(_tmp):
+                    try: os.remove(_tmp)
+                    except Exception: pass
             self.root.after(0, self.status_bar.reset)
             self.root.after(0, self.speed_graph.reset)
 
-    def _upload_folder(self, folder: str):
+    def _upload_folder(self, folder: str, mode: str = "store"):
         files: List[tuple[str, str]] = []
         base = os.path.basename(folder.rstrip("/\\"))
         for root_dir, _, fnames in os.walk(folder):
@@ -517,47 +543,18 @@ class App:
 
         total = len(files)
         self._reset_flags()
-        self.status_bar.file_counter.set(f"0/{total}")
+        self.root.after_idle(lambda: self.status_bar.file_counter.set(f"0/{total}"))
         start = time.time()
 
         for i, (full, rel) in enumerate(files, 1):
             if self.cancel_flag.is_set():
                 break
+            self._upload_single_file(full, rel, mode)
 
-            existing     = self.index.get(rel)
-            cached_sizes = existing.get("part_sizes") if isinstance(existing, dict) else None
-
-            self.index.set(rel, build_entry(
-                [], False, "store", rel, os.path.getsize(full),
-                status=Status.UPLOADING, checksums={}, verified=False,
-                part_sizes=cached_sizes,
-            ))
-            self.index.save()
-
-            def on_progress(done, total_b, eta_s, speed, _rel=rel):
-                self.root.after_idle(lambda: (
-                    self.status_bar.update_transfer(f"Uploading: {_rel}", done, total_b, eta_s, speed, i, total),
-                    self.speed_graph.push(speed),
-                ))
-
-            try:
-                parts, checksums, part_sizes = self.splitter.split(full, on_progress, cached_sizes)
-                self.index.set(rel, build_entry(
-                    parts, False, "store", rel, os.path.getsize(full),
-                    status=Status.COMPLETE, checksums=checksums, verified=True,
-                    part_sizes=part_sizes,
-                ))
-            except KeyboardInterrupt:
-                self._log("Folder upload cancelled.", level="warning")
-                break
-            except Exception as e:
-                self.index.update_status(rel, Status.INCOMPLETE)
-                self._log(f"Error uploading {rel}: {e}", level="error")
-
-            elapsed = max(1e-9, time.time() - start)
+            elapsed     = max(1e-9, time.time() - start)
             eta_overall = (elapsed / i) * (total - i)
             self.root.after_idle(lambda v=(i/total*100): self.status_bar.folder_progress.set(v))
-            self.root.after_idle(lambda: self.status_bar.file_counter.set(f"{i}/{total}"))
+            self.root.after_idle(lambda ii=i, t=total: self.status_bar.file_counter.set(f"{ii}/{t}"))
             self.root.after_idle(lambda e=eta_overall: self.status_bar.eta.set(f"ETA: {int(e)}s"))
 
         self.index.save()
@@ -566,10 +563,6 @@ class App:
             self._ui_info("Success", f"Folder '{base}' uploaded!")
         self.root.after(0, self.status_bar.reset)
         self.root.after(0, self.speed_graph.reset)
-
-    # ═══════════════════════════════════════════════════════════════════════
-    # DOWNLOAD
-    # ═══════════════════════════════════════════════════════════════════════
 
     def _download_item(self):
         rel = self.file_tree.selected_rel_path()
@@ -626,14 +619,13 @@ class App:
             self._ui_error(f"No parts for {rel}.")
             return False
 
-        meta        = entry if isinstance(entry, dict) else {}
-        checksums   = meta.get("checksums", {}) or {}
-        is_comp     = meta.get("compressed", False)
-        orig_name   = meta.get("orig_name", os.path.basename(rel))
-        out_name    = override_name or (orig_name if not is_comp else os.path.basename(rel))
-        out_path    = os.path.join(target_dir, out_name)
+        meta      = entry if isinstance(entry, dict) else {}
+        checksums = meta.get("checksums", {}) or {}
+        is_comp   = meta.get("compressed", False)
+        orig_name = meta.get("orig_name", os.path.basename(rel))
+        out_name  = override_name or (orig_name if not is_comp else os.path.basename(rel))
+        out_path  = os.path.join(target_dir, out_name)
 
-        # ── Checksum verification ─────────────────────────────────────────
         for p in parts:
             base     = os.path.basename(p)
             expected = checksums.get(base)
@@ -663,8 +655,6 @@ class App:
                     if not self._ask_retry_until("Verify error", str(e)):
                         return False
 
-        # ── Merge ─────────────────────────────────────────────────────────
-        total   = sum(os.path.getsize(p) for p in parts if os.path.exists(p))
         try:
             self.sync_enabled = False
 
@@ -677,8 +667,29 @@ class App:
                 self._ui_error(f"Merge failed for {rel}")
                 return False
 
+            is_enc   = meta.get("encrypted", False)
+            salt_hex = meta.get("salt_hex")
+            if is_enc:
+                if not self._session_key:
+                    self._ui_error(
+                        f"'{rel}' is encrypted but no session key is loaded.\n"
+                        "Re-confirm drives and enter your password."
+                    )
+                    return False
+                from core.crypto import derive_key
+                per_file_key = derive_key(self._session_key.hex(),
+                                          bytes.fromhex(salt_hex))
+                dec_path = out_path + ".dec"
+                try:
+                    Splitter.decrypt_file(out_path, dec_path, per_file_key)
+                    os.replace(dec_path, out_path)
+                    self._log(f"Decrypted: {rel}")
+                except Exception as e:
+                    self._ui_error(f"Decryption failed for {rel}: {e}")
+                    return False
+
             if is_comp:
-                if not Splitter.decompress(out_path, target_dir):
+                if not Splitter.decompress(out_path, target_dir, orig_name):
                     self._ui_error(f"Decompression failed for {rel}")
                     return False
                 try: os.remove(out_path)
@@ -702,10 +713,6 @@ class App:
         self.root.after(0, ask)
         evt.wait()
         return result["v"]
-
-    # ═══════════════════════════════════════════════════════════════════════
-    # DELETE
-    # ═══════════════════════════════════════════════════════════════════════
 
     def _delete_item(self):
         rel = self.file_tree.selected_rel_path()
@@ -734,9 +741,166 @@ class App:
         self._ui_info("Deleted", f"Removed: {rel}")
         self.root.after(0, self.status_bar.reset)
 
-    # ═══════════════════════════════════════════════════════════════════════
-    # PURGE ALL
-    # ═══════════════════════════════════════════════════════════════════════
+    def _postprocess_item(self):
+        rel = self.file_tree.selected_rel_path()
+        if not rel:
+            messagebox.showinfo("Select a file", "Select a file in the tree first.")
+            return
+        if not self.selected_drives:
+            messagebox.showerror("Error", "Confirm drives first.")
+            return
+
+        entry = self.index.get(rel)
+        if not isinstance(entry, dict) or entry.get("status") != Status.COMPLETE.value:
+            messagebox.showinfo("Not ready", f"'{rel}' is not complete — cannot post-process.")
+            return
+
+        from ui.dialogs import PostProcessDialog
+        dlg = PostProcessDialog(
+            self.root, rel,
+            already_compressed = entry.get("compressed", False),
+            already_encrypted  = entry.get("encrypted",  False),
+        )
+        if not dlg.result:
+            return
+
+        do_compress, compress_fmt, do_encrypt = dlg.result
+
+        if do_encrypt and not self._session_key:
+            messagebox.showerror(
+                "No session key",
+                "Encryption requires a session key.\n"
+                "Re-confirm drives and enter your password first."
+            )
+            return
+
+        self._submit(self._postprocess_worker, rel, do_compress, compress_fmt, do_encrypt)
+
+    def _postprocess_worker(self, rel, do_compress, compress_fmt, do_encrypt):
+        entry = self.index.get(rel)
+        if not isinstance(entry, dict):
+            self._ui_error(f"Index entry missing for {rel}")
+            return
+
+        old_parts  = self.index.entry_parts(entry)
+        meta       = entry
+        is_enc     = meta.get("encrypted", False)
+        is_comp    = meta.get("compressed", False)
+        salt_hex   = meta.get("salt_hex")
+        orig_name  = meta.get("orig_name", os.path.basename(rel))
+        orig_size  = meta.get("size", 0)
+        fmt        = meta.get("format", "store")
+
+        tmp_dir          = tempfile.mkdtemp(prefix="vdrive_pp_")
+        tmp_merged       = os.path.join(tmp_dir, "merged.bin")
+        tmp_decrypted    = os.path.join(tmp_dir, "decrypted.bin")
+        tmp_decompressed = os.path.join(tmp_dir, orig_name)
+
+        try:
+            self.root.after_idle(lambda: self.status_bar.current_file.set(
+                f"Post-processing: {rel}"))
+
+            def on_prog(done, tot, *_):
+                pct = (done / tot * 100) if tot else 50
+                self.root.after_idle(lambda: self.status_bar.file_progress.set(pct * 0.3))
+
+            ok = self.splitter.merge(old_parts, tmp_merged, on_prog)
+            if not ok:
+                self._ui_error(f"Post-process: merge failed for {rel}")
+                return
+
+            current = tmp_merged
+
+            if is_enc:
+                if not self._session_key or not salt_hex:
+                    self._ui_error(
+                        f"'{rel}' is encrypted but session key is missing.\n"
+                        "Re-confirm drives with the correct password."
+                    )
+                    return
+                from core.crypto import derive_key
+                per_file_key = derive_key(self._session_key.hex(), bytes.fromhex(salt_hex))
+                self._log(f"Post-process: decrypting {rel}…")
+                Splitter.decrypt_file(current, tmp_decrypted, per_file_key)
+                current = tmp_decrypted
+
+            if is_comp:
+                self._log(f"Post-process: decompressing {rel} ({fmt})…")
+                if not Splitter.decompress(current, tmp_dir, orig_name):
+                    self._ui_error(f"Post-process: decompression failed for {rel}")
+                    return
+                current = tmp_decompressed
+
+            tmp_processed  = current
+            new_compressed = False
+            new_fmt        = "store"
+            new_encrypted  = False
+            new_salt_hex   = None
+
+            if do_compress:
+                self._log(f"Post-process: compressing {rel} ({compress_fmt})…")
+                tmp_processed  = self.splitter.compress(tmp_processed, compress_fmt)
+                new_compressed = True
+                new_fmt        = compress_fmt
+
+            if do_encrypt:
+                from core.crypto import derive_key, new_salt, new_iv
+                enc_salt     = new_salt()
+                enc_iv       = new_iv()
+                new_salt_hex = enc_salt.hex()
+                per_file_key = derive_key(self._session_key.hex(), enc_salt)
+                self._log(f"Post-process: encrypting {rel}…")
+                tmp_enc       = tmp_processed + ".enc"
+                Splitter.encrypt_file(tmp_processed, tmp_enc, per_file_key, enc_iv)
+                tmp_processed = tmp_enc
+                new_encrypted = True
+
+            self._log(f"Post-process: removing old parts for {rel}…")
+            for p in old_parts:
+                if os.path.exists(p):
+                    try: os.remove(p)
+                    except Exception: pass
+
+            self._reset_flags()
+
+            def on_split_prog(done, tot, eta_s, speed):
+                pct = 30 + (done / tot * 70) if tot else 100
+                self.root.after_idle(lambda: (
+                    self.status_bar.file_progress.set(pct),
+                    self.speed_graph.push(speed),
+                ))
+
+            new_parts, new_checksums, new_part_sizes = self.splitter.split(
+                tmp_processed, on_split_prog
+            )
+
+            new_entry = build_entry(
+                new_parts, new_compressed, new_fmt, orig_name, orig_size,
+                status=Status.COMPLETE, checksums=new_checksums, verified=True,
+                part_sizes=new_part_sizes,
+                encrypted=new_encrypted, salt_hex=new_salt_hex,
+            )
+            self.index.set(rel, new_entry)
+            self.index.save()
+            self.root.after(0, self._do_refresh_tree)
+
+            ops = []
+            if do_compress: ops.append(f"compressed ({compress_fmt})")
+            if do_encrypt:  ops.append("encrypted")
+            if not ops:     ops.append("re-processed (no change)")
+            self._ui_info("Post-process complete",
+                          f"'{rel}' successfully {' + '.join(ops)}.")
+            self._log(f"Post-process done: {rel} → {', '.join(ops)}")
+
+        except Exception as e:
+            self._ui_error(f"Post-process failed: {e}")
+            self._log(f"Post-process error ({rel}): {e}", level="error")
+        finally:
+            import shutil as _shutil
+            try: _shutil.rmtree(tmp_dir, ignore_errors=True)
+            except Exception: pass
+            self.root.after(0, self.status_bar.reset)
+            self.root.after(0, self.speed_graph.reset)
 
     def _purge_all(self):
         if not self.selected_drives:
@@ -751,7 +915,7 @@ class App:
         for d in self.selected_drives:
             for root_dir, _, files in os.walk(d):
                 for f in files:
-                    if any(f.endswith(e) for e in (".part1",".part2",".part3",".part4",".temp")):
+                    if any(f.endswith(e) for e in (".part1", ".part2", ".part3", ".part4", ".temp")):
                         try: os.remove(os.path.join(root_dir, f))
                         except Exception: pass
             meta = os.path.join(d, INDEX_DIR_NAME)
@@ -766,12 +930,7 @@ class App:
         self._ui_info("Purge Complete", "All data removed.")
         self._log("Purge All completed")
 
-    # ═══════════════════════════════════════════════════════════════════════
-    # AUTO-REPAIR
-    # ═══════════════════════════════════════════════════════════════════════
-
     def _auto_repair_on_startup(self):
-        """Check index on startup and open repair dialog if needed."""
         snap = self.index.snapshot()
         bad  = [k for k, v in snap.items()
                 if isinstance(v, dict) and v.get("status") not in (Status.COMPLETE.value,)]
@@ -788,7 +947,6 @@ class App:
         )
 
     def _repair_files(self, keys: List[str]):
-        """Re-upload files that are incomplete."""
         for k in keys:
             entry = self.index.get(k)
             if not entry:
@@ -804,10 +962,6 @@ class App:
             self.index.delete(k)
         self.index.save()
         self.root.after(0, self._do_refresh_tree)
-
-    # ═══════════════════════════════════════════════════════════════════════
-    # BACKUP / SERVER TAB
-    # ═══════════════════════════════════════════════════════════════════════
 
     def _toggle_backup(self):
         self.cfg.backup_enabled = self._backup_var.get()
@@ -849,8 +1003,8 @@ class App:
         filename = self.server_list.get(sel[0])
         node     = self.backup_client.nodes[0]
         try:
-            all_parts   = self.backup_client.list_parts(node)
-            part_names  = sorted(p for p in all_parts if p.startswith(filename + ".part"))
+            all_parts  = self.backup_client.list_parts(node)
+            part_names = sorted(p for p in all_parts if p.startswith(filename + ".part"))
             if not part_names:
                 self._ui_error("No parts found on server.")
                 return
@@ -875,8 +1029,8 @@ class App:
                 "size":       sum(os.path.getsize(p) for p in local_parts),
                 "status":     Status.COMPLETE.value,
             }
-            merged = os.path.join(tmp_dir, filename)
             ok = self._download_single(filename, fake_entry, tmp_dir, override_name=filename)
+            merged = os.path.join(tmp_dir, filename)
             if not ok or not os.path.exists(merged):
                 self._ui_error("Restore failed during merge.")
                 return
@@ -894,10 +1048,6 @@ class App:
         self.backup_client.delete_file(node, filename)
         self._refresh_server_worker()
         self._ui_info("Done", "Deleted from server.")
-
-    # ═══════════════════════════════════════════════════════════════════════
-    # PAUSE / RESUME / CANCEL
-    # ═══════════════════════════════════════════════════════════════════════
 
     def _pause(self):
         self.user_pause.set()
@@ -919,10 +1069,6 @@ class App:
         self.user_pause.clear()
         self.drive_pause.clear()
 
-    # ═══════════════════════════════════════════════════════════════════════
-    # FILE WATCHER
-    # ═══════════════════════════════════════════════════════════════════════
-
     class _SyncHandler(FileSystemEventHandler):
         _IGNORE_EXTS = {".json", ".temp", ".part1", ".part2", ".part3", ".part4"}
         _IGNORE_DIRS = {".vdrive_meta"}
@@ -934,11 +1080,9 @@ class App:
             if event.is_directory or not self._app.sync_enabled:
                 return
             p = event.src_path
-            # Skip anything inside .vdrive_meta (index files, history)
             if any(seg in self._IGNORE_DIRS
                    for seg in p.replace("\\", "/").split("/")):
                 return
-            # Skip index json, temp split files, part files
             import os as _os
             ext = _os.path.splitext(p)[1].lower()
             if ext in self._IGNORE_EXTS:
@@ -962,10 +1106,6 @@ class App:
         self.sync_observer = observer
         self._log(f"File watcher active on {watch_dir}")
 
-    # ═══════════════════════════════════════════════════════════════════════
-    # DRAG & DROP
-    # ═══════════════════════════════════════════════════════════════════════
-
     def _on_drop(self, event):
         if not self.selected_drives:
             messagebox.showerror("Error", "Confirm drives first.")
@@ -980,17 +1120,12 @@ class App:
             else:
                 self._submit(self._upload_single_file, p)
 
-    # ═══════════════════════════════════════════════════════════════════════
-    # SETTINGS / THEME
-    # ═══════════════════════════════════════════════════════════════════════
-
     def _open_settings(self):
         SettingsDialog(self.root, self.cfg, on_save=self._apply_settings)
 
     def _apply_settings(self, cfg: AppConfig):
         self.cfg = cfg
         self._chunk_var.set(cfg.chunk_mb)
-        self._comp_var.set(cfg.compression)
         try:
             self.root.style.theme_use(cfg.theme)
         except Exception:
@@ -1007,10 +1142,6 @@ class App:
             self.cfg.save()
         except Exception as e:
             self._log(f"Theme toggle failed: {e}", level="error")
-
-    # ═══════════════════════════════════════════════════════════════════════
-    # LOGGING
-    # ═══════════════════════════════════════════════════════════════════════
 
     def _log(self, msg: str, level: str = "info"):
         import logging
@@ -1034,10 +1165,6 @@ class App:
     def _ui_info(self, title: str, msg: str):
         self.root.after(0, lambda: messagebox.showinfo(title, msg))
 
-    # ═══════════════════════════════════════════════════════════════════════
-    # TASK EXECUTOR
-    # ═══════════════════════════════════════════════════════════════════════
-
     def _submit(self, fn: Callable, *args, **kwargs) -> Optional[Future]:
         try:
             fut = self.executor.submit(fn, *args, **kwargs)
@@ -1055,10 +1182,6 @@ class App:
         except Exception as e:
             self._log(f"Submit failed: {e}", level="error")
             return None
-
-    # ═══════════════════════════════════════════════════════════════════════
-    # SHUTDOWN
-    # ═══════════════════════════════════════════════════════════════════════
 
     def close(self):
         self.cancel_flag.set()

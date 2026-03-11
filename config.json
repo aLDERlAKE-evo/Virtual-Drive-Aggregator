@@ -1,8 +1,9 @@
 {
   "chunk_mb": 8,
-  "compression": "store",
+  "compression": "lzma",
   "theme": "darkly",
   "backup_nodes": [],
   "backup_enabled": false,
-  "max_workers": 4
+  "max_workers": 4,
+  "encrypt_enabled": false
 }

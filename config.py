@@ -37,34 +37,37 @@ class Status(str, Enum):
 # ── AppConfig dataclass ───────────────────────────────────────────────────────
 @dataclass
 class AppConfig:
-    chunk_mb:       int         = DEFAULT_CHUNK_MB
-    compression:    str         = "store"
-    theme:          str         = "darkly"
-    backup_nodes:   List[str]   = field(default_factory=list)
-    backup_enabled: bool        = False
-    max_workers:    int         = MAX_WORKERS
+    chunk_mb:        int         = DEFAULT_CHUNK_MB
+    compression:     str         = "store"
+    theme:           str         = "darkly"
+    backup_nodes:    List[str]   = field(default_factory=list)
+    backup_enabled:  bool        = False
+    max_workers:     int         = MAX_WORKERS
+    encrypt_enabled: bool        = False
 
     # ── Serialisation ─────────────────────────────────────────────────────────
 
     def to_dict(self) -> dict:
         return {
-            "chunk_mb":       self.chunk_mb,
-            "compression":    self.compression,
-            "theme":          self.theme,
-            "backup_nodes":   self.backup_nodes,
-            "backup_enabled": self.backup_enabled,
-            "max_workers":    self.max_workers,
+            "chunk_mb":        self.chunk_mb,
+            "compression":     self.compression,
+            "theme":           self.theme,
+            "backup_nodes":    self.backup_nodes,
+            "backup_enabled":  self.backup_enabled,
+            "max_workers":     self.max_workers,
+            "encrypt_enabled": self.encrypt_enabled,
         }
 
     @classmethod
     def from_dict(cls, d: dict) -> "AppConfig":
         return cls(
-            chunk_mb       = int(d.get("chunk_mb",       DEFAULT_CHUNK_MB)),
-            compression    = str(d.get("compression",    "store")),
-            theme          = str(d.get("theme",          "darkly")),
-            backup_nodes   = list(d.get("backup_nodes",  [])),
-            backup_enabled = bool(d.get("backup_enabled", False)),
-            max_workers    = int(d.get("max_workers",    MAX_WORKERS)),
+            chunk_mb        = int(d.get("chunk_mb",        DEFAULT_CHUNK_MB)),
+            compression     = str(d.get("compression",     "store")),
+            theme           = str(d.get("theme",           "darkly")),
+            backup_nodes    = list(d.get("backup_nodes",   [])),
+            backup_enabled  = bool(d.get("backup_enabled", False)),
+            max_workers     = int(d.get("max_workers",     MAX_WORKERS)),
+            encrypt_enabled = bool(d.get("encrypt_enabled", False)),
         )
 
     @classmethod
