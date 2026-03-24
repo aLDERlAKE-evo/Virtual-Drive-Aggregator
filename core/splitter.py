@@ -1,14 +1,21 @@
 """
 core/splitter.py — Splitter class, sha256 alias, compress/decompress helpers.
 
+Pipeline per upload:
+    raw file → [LZMA/zip compress] → [AES-256-CBC encrypt] → split across drives
+
+Pipeline per download:
+    merge parts → [AES-256-CBC decrypt] → [decompress] → output file
+
 Exports:
-  sha256(path)          -> str          (alias for compute_sha256)
-  Splitter              -> main class used by ui/app.py
+    sha256(path)   -> str
+    Splitter       -> main class
 """
 
 from __future__ import annotations
 
 import hashlib
+import lzma
 import os
 import shutil
 import tempfile
@@ -26,14 +33,18 @@ ProgressCB = Callable[[int, int, float, float], None]  # done, total, eta_s, spe
 
 
 def _hide_file(path: str) -> None:
-    """Mark a file as hidden on Windows (attrib +h). Safe no-op elsewhere."""
+    """
+    Mark a file as hidden on Windows using ctypes only — no subprocess,
+    no shell notification. Safe no-op on non-Windows.
+    FILE_ATTRIBUTE_HIDDEN = 0x2
+    """
     try:
-        import subprocess
-        subprocess.call(
-            ["attrib", "+h", path],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-        )
+        import ctypes
+        FILE_ATTRIBUTE_HIDDEN = 0x2
+        current = ctypes.windll.kernel32.GetFileAttributesW(path)
+        if current == -1:  # INVALID_FILE_ATTRIBUTES
+            return
+        ctypes.windll.kernel32.SetFileAttributesW(path, current | FILE_ATTRIBUTE_HIDDEN)
     except Exception:
         pass
 
@@ -48,8 +59,7 @@ def compute_sha256(path: str) -> str:
     return h.hexdigest()
 
 
-# Alias expected by ui/app.py
-sha256 = compute_sha256
+sha256 = compute_sha256   # alias used by ui/app.py
 
 
 def compute_checksums_parallel(paths: List[str]) -> Dict[str, str]:
@@ -68,18 +78,14 @@ def compute_checksums_parallel(paths: List[str]) -> Dict[str, str]:
     return result
 
 
-# ── Part-size distribution ────────────────────────────────────────────────────
+# ── Part-size distribution ─────────────────────────────────────────────────────
 
 def distribute_sizes(
     total_size: int,
     drives: List[str],
     cached: Optional[List[int]] = None,
 ) -> List[int]:
-    """
-    Proportional, capacity-aware distribution.
-    Raises ValueError if drives don't have enough total free space.
-    """
-    free = [shutil.disk_usage(d).free for d in drives]
+    free       = [shutil.disk_usage(d).free for d in drives]
     total_free = sum(free)
 
     if total_free < total_size:
@@ -88,35 +94,91 @@ def distribute_sizes(
             f"have {total_free / 1e9:.2f} GB across {len(drives)} drive(s)."
         )
 
-    # Reuse cached if still valid
     if cached and len(cached) == len(drives):
         if all(cached[i] <= free[i] for i in range(len(drives))):
             return list(cached)
 
     sizes = [int(total_size * (f / total_free)) for f in free]
-
-    # Fix rounding; distribute overflow capacity-first
-    diff = total_size - sum(sizes)
+    diff  = total_size - sum(sizes)
     for i in range(len(sizes)):
         if diff == 0:
             break
-        headroom = free[i] - sizes[i]
-        add = min(diff, max(0, headroom))
+        add = min(diff, max(0, free[i] - sizes[i]))
         sizes[i] += add
-        diff -= add
+        diff     -= add
 
     if diff != 0:
         raise ValueError("Could not distribute bytes — drives too full after rebalancing.")
-
     return sizes
 
 
-# ── Splitter class ────────────────────────────────────────────────────────────
+# ── Compression ────────────────────────────────────────────────────────────────
+
+def _compress_zip(
+    src: str,
+    dst: str,
+    cancel: Optional[threading.Event] = None,
+) -> None:
+    """Deflate compress src → dst, with optional cancel support."""
+    with zipfile.ZipFile(dst, "w", compression=zipfile.ZIP_DEFLATED,
+                         compresslevel=6) as zf:
+        arcname = os.path.basename(src)
+        with zf.open(arcname, "w", force_zip64=True) as zout, \
+             open(src, "rb") as fin:
+            for chunk in iter(lambda: fin.read(1_048_576), b""):
+                if cancel and cancel.is_set():
+                    raise KeyboardInterrupt("Cancelled")
+                zout.write(chunk)
+
+
+def _compress_lzma(
+    src: str,
+    dst: str,
+    cancel: Optional[threading.Event] = None,
+) -> None:
+    """
+    LZMA compress src → dst using Python's native lzma module.
+    Streams in 1 MB chunks so large files don't need to fit in RAM.
+    """
+    with open(src, "rb") as fin, lzma.open(dst, "wb", preset=6) as fout:
+        for chunk in iter(lambda: fin.read(1_048_576), b""):
+            if cancel and cancel.is_set():
+                raise KeyboardInterrupt("Cancelled")
+            fout.write(chunk)
+
+
+def _decompress_zip(
+    src: str,
+    dest_dir: str,
+    cancel: Optional[threading.Event] = None,
+) -> None:
+    """Extract zip archive, checking cancel between members."""
+    with zipfile.ZipFile(src, "r") as zf:
+        for member in zf.infolist():
+            if cancel and cancel.is_set():
+                raise KeyboardInterrupt("Cancelled")
+            zf.extract(member, dest_dir)
+
+
+def _decompress_lzma(
+    src: str,
+    dest_dir: str,
+    orig_name: str,
+    cancel: Optional[threading.Event] = None,
+) -> None:
+    out_path = os.path.join(dest_dir, orig_name)
+    with lzma.open(src, "rb") as fin, open(out_path, "wb") as fout:
+        for chunk in iter(lambda: fin.read(1_048_576), b""):
+            if cancel and cancel.is_set():
+                raise KeyboardInterrupt("Cancelled")
+            fout.write(chunk)
+
+
+# ── Splitter class ─────────────────────────────────────────────────────────────
 
 class Splitter:
     """
-    Encapsulates all split/merge/compress logic for one upload session.
-    Constructed by App after drives are confirmed.
+    Encapsulates split / merge / compress / encrypt logic for one session.
     """
 
     def __init__(
@@ -135,24 +197,97 @@ class Splitter:
         self._drive_pause    = drive_pause
         self._on_drive_error = on_drive_error
 
-    # ── split ─────────────────────────────────────────────────────────────────
+    # ── Public: compress ──────────────────────────────────────────────────────
+
+    def _tmp_dir(self) -> str:
+        """
+        Returns a temp work directory inside the first selected drive.
+        Already excluded from Explorer watchers and the sync observer.
+        Created on first call if it doesn't exist.
+        """
+        d = os.path.join(self._drives[0], ".vdrive_meta", "tmp")
+        os.makedirs(d, exist_ok=True)
+        _hide_file(d)
+        return d
+
+    def compress(self, src_path: str, mode: str) -> str:
+        """
+        Compress src_path into a temp file inside the first drive's
+        .vdrive_tmp folder (already excluded from Explorer and sync watcher).
+        mode: 'zip' (deflate) | 'lzma'
+        Raises KeyboardInterrupt if cancel_flag is set mid-compression.
+        Returns the temp file path — caller is responsible for deleting it.
+        """
+        suffix  = ".lzma" if mode == "lzma" else ".zip"
+        tmp_dir = self._tmp_dir()
+        tmp     = os.path.join(tmp_dir, f"vdrive_compress_{os.getpid()}{suffix}")
+        try:
+            if mode == "lzma":
+                _compress_lzma(src_path, tmp, self._cancel)
+            else:
+                _compress_zip(src_path, tmp, self._cancel)
+        except KeyboardInterrupt:
+            try:
+                if os.path.exists(tmp):
+                    os.remove(tmp)
+            except Exception:
+                pass
+            raise
+        return tmp
+
+    def decompress(self, archive_path: str, dest_dir: str, orig_name: str = "") -> bool:
+        """
+        Decompress archive_path into dest_dir.
+        orig_name is required for .lzma archives (used as the output filename).
+        Raises KeyboardInterrupt if cancel_flag is set mid-decompression.
+        Returns True on success, False on error (cancel re-raises).
+        """
+        try:
+            if archive_path.endswith(".lzma"):
+                name = orig_name or os.path.basename(archive_path).replace(".lzma", "")
+                _decompress_lzma(archive_path, dest_dir, name, self._cancel)
+            else:
+                _decompress_zip(archive_path, dest_dir, self._cancel)
+            return True
+        except KeyboardInterrupt:
+            raise
+        except Exception as e:
+            import logging
+            logging.error(f"vdrive decompress failed: {e}")
+            return False
+
+    # ── Public: encrypt / decrypt ─────────────────────────────────────────────
+
+    @staticmethod
+    def encrypt_file(src: str, dst: str, key: bytes, iv: bytes) -> None:
+        """Encrypt src → dst (AES-256-CBC). Delegates to core.crypto."""
+        from core.crypto import encrypt_file as _enc
+        _enc(src, dst, key, iv)
+
+    @staticmethod
+    def decrypt_file(src: str, dst: str, key: bytes) -> None:
+        """Decrypt src → dst. Delegates to core.crypto."""
+        from core.crypto import decrypt_file as _dec
+        _dec(src, dst, key)
+
+    # ── Public: split ─────────────────────────────────────────────────────────
 
     def split(
         self,
-        src_path:    str,
-        on_progress: ProgressCB,
+        src_path:          str,
+        on_progress:       ProgressCB,
         cached_part_sizes: Optional[List[int]] = None,
     ) -> Tuple[List[str], Dict[str, str], List[int]]:
         """
-        Split src_path across self._drives.
-        Returns (final_parts, checksums, part_sizes).
-        Raises ValueError (pre-flight) or KeyboardInterrupt (cancelled).
+        Split src_path across drives.
+        Returns (final_parts, {basename: sha256}, part_sizes).
         """
         total_size = os.path.getsize(src_path)
 
         if total_size == 0:
             p = os.path.join(self._drives[0], f"{os.path.basename(src_path)}.part1")
             open(p, "wb").close()
+            _hide_file(p)
             return [p], {os.path.basename(p): compute_sha256(p)}, [0]
 
         part_sizes = distribute_sizes(total_size, self._drives, cached_part_sizes)
@@ -212,8 +347,7 @@ class Splitter:
                     if not buf:
                         break
 
-                    mv  = memoryview(buf)
-                    off = 0
+                    mv, off = memoryview(buf), 0
                     pending: List[Tuple[int, memoryview]] = []
 
                     while off < len(mv) and cur < len(handles):
@@ -231,7 +365,6 @@ class Splitter:
                         if written[cur] >= part_sizes[cur]:
                             cur += 1
 
-                    # Parallel write if multiple drives involved
                     if len(pending) > 1:
                         threads = [
                             threading.Thread(target=_write, args=(idx, data), daemon=True)
@@ -246,10 +379,9 @@ class Splitter:
                     if write_errors:
                         errs = dict(write_errors)
                         write_errors.clear()
-                        err_idx  = next(iter(errs))
-                        err_msg  = str(errs[err_idx])
+                        msg = str(next(iter(errs.values())))
                         if self._on_drive_error:
-                            self._on_drive_error(err_msg)
+                            self._on_drive_error(msg)
                         self._drive_pause.set()
                         while self._drive_pause.is_set() and not self._cancel.is_set():
                             time.sleep(0.3)
@@ -277,7 +409,7 @@ class Splitter:
                 try: h.close()
                 except Exception: pass
 
-        # Rename .temp → final and hide from Explorer
+        # Rename .temp → final and hide
         final_parts: List[str] = []
         for p, w in zip(temp_paths, written):
             if w > 0:
@@ -297,7 +429,7 @@ class Splitter:
         checksums = compute_checksums_parallel(final_parts)
         return final_parts, checksums, part_sizes
 
-    # ── merge ─────────────────────────────────────────────────────────────────
+    # ── Public: merge ─────────────────────────────────────────────────────────
 
     def merge(
         self,
@@ -322,27 +454,6 @@ class Splitter:
                                     on_progress(written, total, 0.0, 0.0)
                                 except Exception:
                                     pass
-            return True
-        except Exception:
-            return False
-
-    # ── compress / decompress ─────────────────────────────────────────────────
-
-    @staticmethod
-    def compress(src_path: str, mode: str) -> str:
-        """Compress src_path to a temp zip. Returns temp path (caller deletes)."""
-        comp = zipfile.ZIP_DEFLATED if mode == "zip" else getattr(zipfile, "ZIP_LZMA", zipfile.ZIP_DEFLATED)
-        tmp  = tempfile.mktemp(prefix="vdrive_", suffix=".zip")
-        with zipfile.ZipFile(tmp, "w", compression=comp) as zf:
-            zf.write(src_path, arcname=os.path.basename(src_path))
-        return tmp
-
-    @staticmethod
-    def decompress(zip_path: str, dest_dir: str) -> bool:
-        """Extract zip_path into dest_dir. Returns True on success."""
-        try:
-            with zipfile.ZipFile(zip_path, "r") as zf:
-                zf.extractall(dest_dir)
             return True
         except Exception:
             return False

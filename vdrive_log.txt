@@ -8348,3 +8348,106 @@
 00:05:47 WARNING: Folder upload cancelled.
 00:05:57 INFO: Purge All completed
 00:05:58 INFO: Application closed
+14:55:33 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+14:55:33 INFO: File watcher active on E:/
+14:55:33 INFO: Drives confirmed: ['E:/', 'F:/']
+14:56:11 INFO: Uploaded Jujutsu Kaisen S03E06 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
+14:57:34 WARNING: Drives disconnected: ['E:/', 'F:/']
+14:57:34 WARNING: Selected drives missing: ['E:/', 'F:/'] — paused
+14:57:38 INFO: Drives connected: ['E:/', 'F:/']
+14:57:38 INFO: All selected drives reconnected — reloading index
+14:57:38 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (1 entries)
+14:58:20 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (1 entries)
+14:58:20 INFO: File watcher active on E:/
+14:58:20 INFO: Drives confirmed: ['E:/', 'F:/']
+14:58:24 INFO: Application closed
+14:58:34 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (1 entries)
+14:58:34 INFO: File watcher active on E:/
+14:58:34 INFO: Drives confirmed: ['E:/', 'F:/']
+14:59:48 INFO: Compressing Sicko Mode Meme SFX.mp3 (lzma)…
+14:59:49 INFO: Uploaded Sicko Mode Meme SFX.mp3 \u2192 2 part(s)
+15:00:04 INFO: Compressing Jujutsu Kaisen S03E03 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
+15:00:21 INFO: Compressing Jujutsu Kaisen S03E04 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
+15:00:53 INFO: Application closed
+15:01:05 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (2 entries)
+15:01:05 INFO: File watcher active on E:/
+15:01:05 INFO: Drives confirmed: ['E:/', 'F:/']
+15:01:18 INFO: Compressing Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
+15:01:26 INFO: Purge All completed
+15:01:33 INFO: Compressing Jujutsu Kaisen S03E06 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
+15:02:52 INFO: Compressing Jujutsu Kaisen S03E03 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
+15:03:38 INFO: Uploaded Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
+15:03:53 INFO: Uploaded Jujutsu Kaisen S03E06 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
+15:05:26 INFO: Uploaded Jujutsu Kaisen S03E03 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
+16:52:50 INFO: Application closed
+20:34:01 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (3 entries)
+20:34:01 INFO: File watcher active on E:/
+20:34:01 INFO: Drives confirmed: ['E:/', 'F:/']
+20:34:09 INFO: Purge All completed
+20:35:18 INFO: Uploaded Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
+20:35:38 INFO: Compressing OIP.png (zip)…
+20:35:38 INFO: Uploaded OIP.png \u2192 2 part(s)
+20:35:59 INFO: Compressing Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
+20:36:34 WARNING: Cancel requested
+20:36:39 WARNING: Cancel requested
+20:36:58 WARNING: Cancel requested
+20:37:02 INFO: User paused
+20:37:02 INFO: User resumed
+20:37:10 WARNING: Cancel requested
+20:37:10 WARNING: Cancel requested
+20:37:11 WARNING: Cancel requested
+20:37:13 INFO: Application closed
+20:37:40 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (2 entries)
+20:37:40 INFO: File watcher active on E:/
+20:37:40 INFO: Drives confirmed: ['E:/', 'F:/']
+20:37:46 INFO: Post-process: merging parts for Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv…
+20:37:46 INFO: Post-process: compressing Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (zip)…
+20:37:54 INFO: Post-process: removing old parts for Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv…
+20:37:54 INFO: Post-process: re-splitting Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv…
+20:38:18 INFO: Post-process done: Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 compressed (zip)
+20:40:24 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (2 entries)
+20:40:24 INFO: File watcher active on E:/
+20:40:24 INFO: Drives confirmed: ['E:/', 'F:/']
+20:40:38 INFO: Purge All completed
+20:40:46 INFO: Application closed
+22:25:06 INFO: Application closed
+22:25:33 INFO: Application closed
+22:29:57 INFO: Application closed
+22:40:07 INFO: vdrive: index loaded from F:/.vdrive_meta\index.json (0 entries)
+22:40:07 INFO: File watcher active on F:/
+22:40:07 INFO: Drives confirmed: ['F:/', 'E:/']
+22:40:09 INFO: vdrive: index loaded from F:/.vdrive_meta\index.json (0 entries)
+22:40:09 INFO: File watcher active on F:/
+22:40:09 INFO: Drives confirmed: ['F:/', 'E:/']
+22:40:12 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+22:40:12 INFO: File watcher active on E:/
+22:40:12 INFO: Drives confirmed: ['E:/', 'F:/']
+22:40:27 INFO: Compressing pycharm-2025.3.3.exe (zip)…
+22:40:34 WARNING: Cancel requested
+22:40:36 WARNING: Cancel requested
+22:40:38 INFO: Application closed
+22:41:04 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+22:41:04 INFO: File watcher active on E:/
+22:41:04 INFO: Drives confirmed: ['E:/', 'F:/']
+22:42:20 INFO: Uploaded pycharm-2025.3.3.exe \u2192 2 part(s)
+22:42:34 INFO: Application closed
+16:44:06 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+16:44:06 INFO: File watcher active on E:/
+16:44:06 INFO: Drives confirmed: ['E:/', 'F:/']
+16:44:10 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+16:44:10 INFO: File watcher active on E:/
+16:44:10 INFO: Drives confirmed: ['E:/', 'F:/']
+16:46:17 INFO: Uploaded Invincible.S04e03.I.Gotta.Get.Some.Air.1080P.Hindi.English.Esubs.Vegamovies.is.mkv \u2192 2 part(s)
+16:46:47 INFO: Compressing Jujutsu Kaisen S03E08 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (zip)…
+16:47:30 INFO: Uploaded Jujutsu Kaisen S03E08 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
+16:48:04 INFO: Compressing Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
+16:50:32 INFO: Uploaded Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
+16:57:52 INFO: Compressing Jujutsu Kaisen S03E08 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (zip)…
+16:57:54 WARNING: Cancel requested
+16:57:56 WARNING: Upload cancelled: Jujutsu Kaisen S03E08 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv
+16:58:22 INFO: Uploaded Vooks\linuxbasicsforhackers.pdf \u2192 2 part(s)
+16:58:23 INFO: Uploaded Vooks\R. S. Aggarwal - Quantitative Aptitude for Competitive Examinations by R.S. Aggarwal-S. Chand Publishing (2017).pdf \u2192 2 part(s)
+16:59:07 INFO: Settings saved and applied
+16:59:13 INFO: Settings saved and applied
+16:59:17 INFO: Settings saved and applied
+16:59:22 INFO: Settings saved and applied

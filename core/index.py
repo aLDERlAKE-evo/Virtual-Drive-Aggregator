@@ -31,6 +31,8 @@ def build_entry(
     checksums:  Optional[Dict[str, str]] = None,
     verified:   bool                     = True,
     part_sizes: Optional[List[int]]      = None,
+    encrypted:  bool                     = False,
+    salt_hex:   Optional[str]            = None,
 ) -> IndexEntry:
     entry: IndexEntry = {
         "version":    INDEX_VERSION,
@@ -41,12 +43,15 @@ def build_entry(
         "size":       orig_size,
         "status":     status.value,
         "created_at": time.time(),
+        "encrypted":  encrypted,
     }
     if checksums is not None:
         entry["checksums"] = checksums
         entry["verified"]  = verified
     if part_sizes is not None:
         entry["part_sizes"] = part_sizes
+    if salt_hex is not None:
+        entry["salt_hex"] = salt_hex
     return entry
 
 
