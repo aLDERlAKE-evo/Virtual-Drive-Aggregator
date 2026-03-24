@@ -65,7 +65,8 @@ class App:
         self._fut_lock = threading.Lock()
 
         # Session encryption key (derived at Confirm Drives time)
-        self._session_key: bytes | None = None
+        self._session_key:      bytes | None = None
+        self._session_password: str   | None = None
 
         # Sync watcher
         self.sync_enabled  = True
@@ -136,6 +137,8 @@ class App:
                   command=self._open_settings).pack(side="right", padx=4)
         tb.Button(top, text="🔧 Repair", bootstyle="warning",
                   command=self._open_repair).pack(side="right", padx=4)
+        tb.Button(top, text="🕘 History", bootstyle="secondary",
+                  command=self._open_history).pack(side="right", padx=4)
         tb.Button(top, text="🌙 Theme", bootstyle="secondary",
                   command=self._toggle_theme).pack(side="right", padx=4)
 
@@ -292,7 +295,8 @@ class App:
             messagebox.showerror("Error", "Select at least two removable drives.")
             return
 
-        self._session_key = None
+        self._session_key      = None
+        self._session_password = None   # needed for per-file key derivation
         if self.cfg.encrypt_enabled:
             from ui.dialogs import PasswordDialog
             pwd = PasswordDialog.ask(self.root)
@@ -307,7 +311,8 @@ class App:
                 self.cfg.save()
             else:
                 salt = bytes.fromhex(salt_hex)
-            self._session_key = derive_key(pwd, salt)
+            self._session_key      = derive_key(pwd, salt)
+            self._session_password = pwd
             self._log("Encryption enabled — session key derived ✓")
 
         self.selected_drives = [d if d.endswith("/") else d + "/" for d in chosen]
@@ -452,7 +457,7 @@ class App:
                 enc_salt     = new_salt()
                 enc_iv       = new_iv()
                 enc_salt_hex = enc_salt.hex()
-                per_file_key = derive_key(self._session_key.hex(), enc_salt)
+                per_file_key = derive_key(self._session_password, enc_salt)
                 self.root.after_idle(lambda r=rel: self.status_bar.current_file.set(
                     f"Encrypting: {r}…"))
                 self._log(f"Encrypting {rel}…")
@@ -670,14 +675,14 @@ class App:
             is_enc   = meta.get("encrypted", False)
             salt_hex = meta.get("salt_hex")
             if is_enc:
-                if not self._session_key:
+                if not self._session_password:
                     self._ui_error(
                         f"'{rel}' is encrypted but no session key is loaded.\n"
                         "Re-confirm drives and enter your password."
                     )
                     return False
                 from core.crypto import derive_key
-                per_file_key = derive_key(self._session_key.hex(),
+                per_file_key = derive_key(self._session_password,
                                           bytes.fromhex(salt_hex))
                 dec_path = out_path + ".dec"
                 try:
@@ -689,11 +694,18 @@ class App:
                     return False
 
             if is_comp:
-                if not Splitter.decompress(out_path, target_dir, orig_name):
-                    self._ui_error(f"Decompression failed for {rel}")
-                    return False
-                try: os.remove(out_path)
-                except Exception: pass
+                fmt      = meta.get("format", "store")
+                ext      = ".lzma" if fmt == "lzma" else ".zip"
+                tmp_arch = out_path + ext
+                try:
+                    os.replace(out_path, tmp_arch)
+                    if not Splitter.decompress(tmp_arch, target_dir, orig_name):
+                        self._ui_error(f"Decompression failed for {rel}")
+                        return False
+                finally:
+                    if os.path.exists(tmp_arch):
+                        try: os.remove(tmp_arch)
+                        except Exception: pass
 
             return True
         except Exception as e:
@@ -782,6 +794,8 @@ class App:
             self._ui_error(f"Index entry missing for {rel}")
             return
 
+        self._reset_flags()   # clear any stale cancel/pause before merge
+
         old_parts  = self.index.entry_parts(entry)
         meta       = entry
         is_enc     = meta.get("encrypted", False)
@@ -812,23 +826,32 @@ class App:
             current = tmp_merged
 
             if is_enc:
-                if not self._session_key or not salt_hex:
+                if not self._session_password or not salt_hex:
                     self._ui_error(
                         f"'{rel}' is encrypted but session key is missing.\n"
                         "Re-confirm drives with the correct password."
                     )
                     return
                 from core.crypto import derive_key
-                per_file_key = derive_key(self._session_key.hex(), bytes.fromhex(salt_hex))
+                per_file_key = derive_key(self._session_password, bytes.fromhex(salt_hex))
                 self._log(f"Post-process: decrypting {rel}…")
                 Splitter.decrypt_file(current, tmp_decrypted, per_file_key)
                 current = tmp_decrypted
 
             if is_comp:
                 self._log(f"Post-process: decompressing {rel} ({fmt})…")
-                if not Splitter.decompress(current, tmp_dir, orig_name):
-                    self._ui_error(f"Post-process: decompression failed for {rel}")
-                    return
+                ext      = ".lzma" if fmt == "lzma" else ".zip"
+                tmp_arch = current + ext
+                import shutil as _sh2
+                _sh2.copy2(current, tmp_arch)
+                try:
+                    if not Splitter.decompress(tmp_arch, tmp_dir, orig_name):
+                        self._ui_error(f"Post-process: decompression failed for {rel}")
+                        return
+                finally:
+                    if os.path.exists(tmp_arch):
+                        try: os.remove(tmp_arch)
+                        except Exception: pass
                 current = tmp_decompressed
 
             tmp_processed  = current
@@ -848,7 +871,7 @@ class App:
                 enc_salt     = new_salt()
                 enc_iv       = new_iv()
                 new_salt_hex = enc_salt.hex()
-                per_file_key = derive_key(self._session_key.hex(), enc_salt)
+                per_file_key = derive_key(self._session_password, enc_salt)
                 self._log(f"Post-process: encrypting {rel}…")
                 tmp_enc       = tmp_processed + ".enc"
                 Splitter.encrypt_file(tmp_processed, tmp_enc, per_file_key, enc_iv)
@@ -939,12 +962,37 @@ class App:
             self.root.after(500, self._open_repair)
 
     def _open_repair(self):
+        snap   = self.index.snapshot()
+        broken = {k: v for k, v in snap.items()
+                  if not isinstance(v, dict)
+                  or v.get("status") != Status.COMPLETE.value}
         RepairDialog(
             self.root,
-            self.index.snapshot(),
-            on_repair=self._repair_files,
+            broken,
+            on_reupload=self._repair_files,
             on_remove=self._remove_index_entries,
         )
+
+    def _open_history(self):
+        if not self.selected_drives:
+            messagebox.showinfo("No drives", "Confirm drives first.")
+            return
+        from ui.dialogs import HistoryDialog
+        snaps = self.index.list_history()
+        HistoryDialog(
+            self.root,
+            snaps,
+            on_restore=self._restore_history_snapshot,
+        )
+
+    def _restore_history_snapshot(self, snapshot_path: str):
+        ok = self.index.restore_snapshot(snapshot_path)
+        if ok:
+            self.root.after(0, self._do_refresh_tree)
+            self._ui_info("Restored", "Index restored from snapshot.")
+            self._log(f"Index restored from {snapshot_path}")
+        else:
+            self._ui_error(f"Failed to restore snapshot: {snapshot_path}")
 
     def _repair_files(self, keys: List[str]):
         for k in keys:
