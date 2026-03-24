@@ -114,32 +114,63 @@ def distribute_sizes(
 
 # ── Compression ────────────────────────────────────────────────────────────────
 
-def _compress_zip(src: str, dst: str) -> None:
-    """Deflate compress src → dst."""
+def _compress_zip(
+    src: str,
+    dst: str,
+    cancel: Optional[threading.Event] = None,
+) -> None:
+    """Deflate compress src → dst, with optional cancel support."""
     with zipfile.ZipFile(dst, "w", compression=zipfile.ZIP_DEFLATED,
                          compresslevel=6) as zf:
-        zf.write(src, arcname=os.path.basename(src))
+        arcname = os.path.basename(src)
+        with zf.open(arcname, "w", force_zip64=True) as zout, \
+             open(src, "rb") as fin:
+            for chunk in iter(lambda: fin.read(1_048_576), b""):
+                if cancel and cancel.is_set():
+                    raise KeyboardInterrupt("Cancelled")
+                zout.write(chunk)
 
 
-def _compress_lzma(src: str, dst: str) -> None:
+def _compress_lzma(
+    src: str,
+    dst: str,
+    cancel: Optional[threading.Event] = None,
+) -> None:
     """
     LZMA compress src → dst using Python's native lzma module.
     Streams in 1 MB chunks so large files don't need to fit in RAM.
     """
     with open(src, "rb") as fin, lzma.open(dst, "wb", preset=6) as fout:
         for chunk in iter(lambda: fin.read(1_048_576), b""):
+            if cancel and cancel.is_set():
+                raise KeyboardInterrupt("Cancelled")
             fout.write(chunk)
 
 
-def _decompress_zip(src: str, dest_dir: str) -> None:
+def _decompress_zip(
+    src: str,
+    dest_dir: str,
+    cancel: Optional[threading.Event] = None,
+) -> None:
+    """Extract zip archive, checking cancel between members."""
     with zipfile.ZipFile(src, "r") as zf:
-        zf.extractall(dest_dir)
+        for member in zf.infolist():
+            if cancel and cancel.is_set():
+                raise KeyboardInterrupt("Cancelled")
+            zf.extract(member, dest_dir)
 
 
-def _decompress_lzma(src: str, dest_dir: str, orig_name: str) -> None:
+def _decompress_lzma(
+    src: str,
+    dest_dir: str,
+    orig_name: str,
+    cancel: Optional[threading.Event] = None,
+) -> None:
     out_path = os.path.join(dest_dir, orig_name)
     with lzma.open(src, "rb") as fin, open(out_path, "wb") as fout:
         for chunk in iter(lambda: fin.read(1_048_576), b""):
+            if cancel and cancel.is_set():
+                raise KeyboardInterrupt("Cancelled")
             fout.write(chunk)
 
 
@@ -184,31 +215,42 @@ class Splitter:
         Compress src_path into a temp file inside the first drive's
         .vdrive_tmp folder (already excluded from Explorer and sync watcher).
         mode: 'zip' (deflate) | 'lzma'
+        Raises KeyboardInterrupt if cancel_flag is set mid-compression.
         Returns the temp file path — caller is responsible for deleting it.
         """
         suffix  = ".lzma" if mode == "lzma" else ".zip"
         tmp_dir = self._tmp_dir()
         tmp     = os.path.join(tmp_dir, f"vdrive_compress_{os.getpid()}{suffix}")
-        if mode == "lzma":
-            _compress_lzma(src_path, tmp)
-        else:
-            _compress_zip(src_path, tmp)
+        try:
+            if mode == "lzma":
+                _compress_lzma(src_path, tmp, self._cancel)
+            else:
+                _compress_zip(src_path, tmp, self._cancel)
+        except KeyboardInterrupt:
+            try:
+                if os.path.exists(tmp):
+                    os.remove(tmp)
+            except Exception:
+                pass
+            raise
         return tmp
 
-    @staticmethod
-    def decompress(archive_path: str, dest_dir: str, orig_name: str = "") -> bool:
+    def decompress(self, archive_path: str, dest_dir: str, orig_name: str = "") -> bool:
         """
         Decompress archive_path into dest_dir.
         orig_name is required for .lzma archives (used as the output filename).
-        Returns True on success.
+        Raises KeyboardInterrupt if cancel_flag is set mid-decompression.
+        Returns True on success, False on error (cancel re-raises).
         """
         try:
             if archive_path.endswith(".lzma"):
                 name = orig_name or os.path.basename(archive_path).replace(".lzma", "")
-                _decompress_lzma(archive_path, dest_dir, name)
+                _decompress_lzma(archive_path, dest_dir, name, self._cancel)
             else:
-                _decompress_zip(archive_path, dest_dir)
+                _decompress_zip(archive_path, dest_dir, self._cancel)
             return True
+        except KeyboardInterrupt:
+            raise
         except Exception as e:
             import logging
             logging.error(f"vdrive decompress failed: {e}")

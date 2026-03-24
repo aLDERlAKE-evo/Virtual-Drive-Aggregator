@@ -8431,3 +8431,23 @@
 22:41:04 INFO: Drives confirmed: ['E:/', 'F:/']
 22:42:20 INFO: Uploaded pycharm-2025.3.3.exe \u2192 2 part(s)
 22:42:34 INFO: Application closed
+16:44:06 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+16:44:06 INFO: File watcher active on E:/
+16:44:06 INFO: Drives confirmed: ['E:/', 'F:/']
+16:44:10 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+16:44:10 INFO: File watcher active on E:/
+16:44:10 INFO: Drives confirmed: ['E:/', 'F:/']
+16:46:17 INFO: Uploaded Invincible.S04e03.I.Gotta.Get.Some.Air.1080P.Hindi.English.Esubs.Vegamovies.is.mkv \u2192 2 part(s)
+16:46:47 INFO: Compressing Jujutsu Kaisen S03E08 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (zip)…
+16:47:30 INFO: Uploaded Jujutsu Kaisen S03E08 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
+16:48:04 INFO: Compressing Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
+16:50:32 INFO: Uploaded Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
+16:57:52 INFO: Compressing Jujutsu Kaisen S03E08 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (zip)…
+16:57:54 WARNING: Cancel requested
+16:57:56 WARNING: Upload cancelled: Jujutsu Kaisen S03E08 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv
+16:58:22 INFO: Uploaded Vooks\linuxbasicsforhackers.pdf \u2192 2 part(s)
+16:58:23 INFO: Uploaded Vooks\R. S. Aggarwal - Quantitative Aptitude for Competitive Examinations by R.S. Aggarwal-S. Chand Publishing (2017).pdf \u2192 2 part(s)
+16:59:07 INFO: Settings saved and applied
+16:59:13 INFO: Settings saved and applied
+16:59:17 INFO: Settings saved and applied
+16:59:22 INFO: Settings saved and applied

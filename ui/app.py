@@ -699,7 +699,7 @@ class App:
                 tmp_arch = out_path + ext
                 try:
                     os.replace(out_path, tmp_arch)
-                    if not Splitter.decompress(tmp_arch, target_dir, orig_name):
+                    if not self.splitter.decompress(tmp_arch, target_dir, orig_name):
                         self._ui_error(f"Decompression failed for {rel}")
                         return False
                 finally:
@@ -845,7 +845,7 @@ class App:
                 import shutil as _sh2
                 _sh2.copy2(current, tmp_arch)
                 try:
-                    if not Splitter.decompress(tmp_arch, tmp_dir, orig_name):
+                    if not self.splitter.decompress(tmp_arch, tmp_dir, orig_name):
                         self._ui_error(f"Post-process: decompression failed for {rel}")
                         return
                 finally:
@@ -915,6 +915,11 @@ class App:
                           f"'{rel}' successfully {' + '.join(ops)}.")
             self._log(f"Post-process done: {rel} → {', '.join(ops)}")
 
+        except KeyboardInterrupt:
+            self.index.update_status(rel, Status.CANCELLED)
+            self.index.save()
+            self.root.after(0, self._do_refresh_tree)
+            self._log(f"Post-process cancelled: {rel}", level="warning")
         except Exception as e:
             self._ui_error(f"Post-process failed: {e}")
             self._log(f"Post-process error ({rel}): {e}", level="error")
