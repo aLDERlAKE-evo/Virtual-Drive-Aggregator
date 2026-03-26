@@ -20,34 +20,60 @@ class BackupClient:
 
     # ── Discovery ─────────────────────────────────────────────────────────────
 
+    @staticmethod
+    def _local_lan_ip() -> str:
+        """
+        Reliably get the machine's outbound LAN IP (not 127.0.0.1).
+        Uses a UDP connect trick — no packet is actually sent.
+        Falls back to gethostbyname if it fails.
+        """
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            s.connect(("8.8.8.8", 80))
+            ip = s.getsockname()[0]
+            s.close()
+            return ip
+        except Exception:
+            return socket.gethostbyname(socket.gethostname())
+
     def discover(
         self,
         on_found: callable | None = None,
-        timeout: float = 0.4,
+        timeout: float = 1.2,
+        extra_ips: list[str] | None = None,
     ) -> list[str]:
         """
         Parallel LAN scan for backup nodes running the Flask server.
+        Also checks any manually configured IPs in extra_ips first.
         Calls on_found(ip_list) when done (safe to use for UI update).
         Returns list of discovered IPs.
         """
         found: list[str] = []
-        try:
-            hostname = socket.gethostname()
-            local_ip = socket.gethostbyname(hostname)
-            subnet = ".".join(local_ip.split(".")[:-1])
-            ips = [f"{subnet}.{i}" for i in range(1, 255)]
 
-            def check(ip: str) -> Optional[str]:
-                try:
-                    r = requests.get(f"http://{ip}:5000/health", timeout=timeout)
-                    return ip if r.status_code == 200 else None
-                except Exception:
-                    return None
+        def check(ip: str) -> Optional[str]:
+            try:
+                r = requests.get(f"http://{ip}:5000/health", timeout=timeout)
+                return ip if r.status_code == 200 else None
+            except Exception:
+                return None
+
+        try:
+            local_ip = self._local_lan_ip()
+            subnet   = ".".join(local_ip.split(".")[:-1])
+            scan_ips = [f"{subnet}.{i}" for i in range(1, 255)]
+
+            # Also check any manually-configured IPs not already in the subnet scan
+            if extra_ips:
+                for ip in extra_ips:
+                    ip = ip.strip()
+                    if ip and ip not in scan_ips:
+                        scan_ips.insert(0, ip)
 
             with ThreadPoolExecutor(max_workers=64) as pool:
-                for result in as_completed([pool.submit(check, ip) for ip in ips]):
+                futures = {pool.submit(check, ip): ip for ip in scan_ips}
+                for result in as_completed(futures):
                     res = result.result()
-                    if res:
+                    if res and res not in found:
                         found.append(res)
         except Exception:
             pass

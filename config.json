@@ -1,6 +1,6 @@
 {
   "chunk_mb": 8,
-  "compression": "lzma",
+  "compression": "store",
   "theme": "darkly",
   "backup_nodes": [],
   "backup_enabled": false,

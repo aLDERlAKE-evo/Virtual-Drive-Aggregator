@@ -5,170 +5,170 @@
 23:19:05 INFO: Drives confirmed: ['E:/', 'F:/']
 23:19:10 INFO: Purge All completed
 23:19:10 ERROR: Task error: [Errno 13] Permission denied: 'E:/.vdrive_meta\\history\\index_1772819350.json'
-23:19:10 INFO: Sending to backup node…
-23:19:10 INFO: Sending to backup node…
-23:19:10 INFO: Sending to backup node…
-23:19:10 INFO: Sending to backup node…
+23:19:10 INFO: Sending to backup nodeï¿½
+23:19:10 INFO: Sending to backup nodeï¿½
+23:19:10 INFO: Sending to backup nodeï¿½
+23:19:10 INFO: Sending to backup nodeï¿½
 23:19:10 INFO: Uploaded index.json \u2192 2 part(s)
 23:19:10 INFO: Uploaded index.json \u2192 2 part(s)
 23:19:10 INFO: Uploaded index.json \u2192 2 part(s)
 23:19:11 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
-23:19:11 INFO: Sending to backup node…
-23:19:11 INFO: Sending to backup node…
-23:19:11 INFO: Sending to backup node…
-23:19:11 INFO: Sending to backup node…
+23:19:11 INFO: Sending to backup nodeï¿½
+23:19:11 INFO: Sending to backup nodeï¿½
+23:19:11 INFO: Sending to backup nodeï¿½
+23:19:11 INFO: Sending to backup nodeï¿½
 23:19:11 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:11 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:11 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:11 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
-23:19:11 INFO: Sending to backup node…
-23:19:11 INFO: Sending to backup node…
-23:19:11 INFO: Sending to backup node…
+23:19:11 INFO: Sending to backup nodeï¿½
+23:19:11 INFO: Sending to backup nodeï¿½
+23:19:11 INFO: Sending to backup nodeï¿½
 23:19:11 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
-23:19:11 INFO: Sending to backup node…
+23:19:11 INFO: Sending to backup nodeï¿½
 23:19:11 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:11 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:11 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index.json.part1.temp'
 23:19:11 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:11 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index.json.part1.temp'
 23:19:11 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index.json.part1.temp'
-23:19:11 INFO: Sending to backup node…
-23:19:11 INFO: Sending to backup node…
-23:19:11 INFO: Sending to backup node…
-23:19:11 INFO: Sending to backup node…
+23:19:11 INFO: Sending to backup nodeï¿½
+23:19:11 INFO: Sending to backup nodeï¿½
+23:19:11 INFO: Sending to backup nodeï¿½
+23:19:11 INFO: Sending to backup nodeï¿½
 23:19:11 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:12 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:12 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:12 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index.json.part1.temp'
 23:19:12 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
-23:19:12 INFO: Sending to backup node…
-23:19:12 INFO: Sending to backup node…
+23:19:12 INFO: Sending to backup nodeï¿½
+23:19:12 INFO: Sending to backup nodeï¿½
 23:19:12 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
 23:19:12 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
-23:19:12 INFO: Sending to backup node…
+23:19:12 INFO: Sending to backup nodeï¿½
 23:19:12 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:12 INFO: Uploaded index.json.part1 \u2192 1 part(s)
-23:19:12 INFO: Sending to backup node…
+23:19:12 INFO: Sending to backup nodeï¿½
 23:19:12 INFO: Uploaded index.json.part1 \u2192 1 part(s)
-23:19:12 INFO: Sending to backup node…
-23:19:12 INFO: Sending to backup node…
+23:19:12 INFO: Sending to backup nodeï¿½
+23:19:12 INFO: Sending to backup nodeï¿½
 23:19:12 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
-23:19:12 INFO: Sending to backup node…
+23:19:12 INFO: Sending to backup nodeï¿½
 23:19:12 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:12 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
-23:19:12 INFO: Sending to backup node…
+23:19:12 INFO: Sending to backup nodeï¿½
 23:19:12 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
-23:19:12 INFO: Sending to backup node…
-23:19:12 INFO: Sending to backup node…
+23:19:12 INFO: Sending to backup nodeï¿½
+23:19:12 INFO: Sending to backup nodeï¿½
 23:19:13 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
-23:19:13 INFO: Sending to backup node…
+23:19:13 INFO: Sending to backup nodeï¿½
 23:19:13 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:13 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
-23:19:13 INFO: Sending to backup node…
+23:19:13 INFO: Sending to backup nodeï¿½
 23:19:13 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:13 ERROR: Upload error (index_1772819350.json): [Errno 13] Permission denied: 'F:/index_1772819350.json.part2.temp'
-23:19:13 INFO: Sending to backup node…
+23:19:13 INFO: Sending to backup nodeï¿½
 23:19:13 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
-23:19:13 INFO: Sending to backup node…
+23:19:13 INFO: Sending to backup nodeï¿½
 23:19:13 ERROR: Upload error (index_1772819350.json): [WinError 2] The system cannot find the file specified: 'E:/index_1772819350.json.part1.temp'
-23:19:13 INFO: Sending to backup node…
+23:19:13 INFO: Sending to backup nodeï¿½
 23:19:13 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:13 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
-23:19:13 INFO: Sending to backup node…
+23:19:13 INFO: Sending to backup nodeï¿½
 23:19:13 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:13 ERROR: Upload error (index_1772819350.json): [WinError 2] The system cannot find the file specified: 'E:/index_1772819350.json.part1.temp'
-23:19:13 INFO: Sending to backup node…
+23:19:13 INFO: Sending to backup nodeï¿½
 23:19:13 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
-23:19:13 INFO: Sending to backup node…
-23:19:13 INFO: Sending to backup node…
+23:19:13 INFO: Sending to backup nodeï¿½
+23:19:13 INFO: Sending to backup nodeï¿½
 23:19:14 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
-23:19:14 INFO: Sending to backup node…
+23:19:14 INFO: Sending to backup nodeï¿½
 23:19:14 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:14 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
-23:19:14 INFO: Sending to backup node…
+23:19:14 INFO: Sending to backup nodeï¿½
 23:19:14 INFO: Uploaded index_1772819350.json \u2192 2 part(s)
 23:19:14 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
-23:19:14 INFO: Sending to backup node…
-23:19:14 INFO: Sending to backup node…
+23:19:14 INFO: Sending to backup nodeï¿½
+23:19:14 INFO: Sending to backup nodeï¿½
 23:19:14 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:14 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:14 INFO: Sending to backup node…
+23:19:14 INFO: Sending to backup nodeï¿½
 23:19:14 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:14 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
-23:19:14 INFO: Sending to backup node…
-23:19:14 INFO: Sending to backup node…
+23:19:14 INFO: Sending to backup nodeï¿½
+23:19:14 INFO: Sending to backup nodeï¿½
 23:19:14 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:14 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:14 INFO: Sending to backup node…
+23:19:14 INFO: Sending to backup nodeï¿½
 23:19:14 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:14 INFO: Sending to backup node…
+23:19:14 INFO: Sending to backup nodeï¿½
 23:19:14 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:15 ERROR: Upload error (index_1772819351.json): [WinError 2] The system cannot find the file specified: 'E:/index_1772819351.json.part1.temp'
-23:19:15 INFO: Sending to backup node…
+23:19:15 INFO: Sending to backup nodeï¿½
 23:19:15 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
 23:19:15 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:15 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
-23:19:15 INFO: Sending to backup node…
+23:19:15 INFO: Sending to backup nodeï¿½
 23:19:15 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:15 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:15 INFO: Sending to backup node…
-23:19:15 INFO: Sending to backup node…
-23:19:15 INFO: Sending to backup node…
+23:19:15 INFO: Sending to backup nodeï¿½
+23:19:15 INFO: Sending to backup nodeï¿½
+23:19:15 INFO: Sending to backup nodeï¿½
 23:19:15 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:15 INFO: Sending to backup node…
-23:19:15 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:15 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:15 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:15 INFO: Sending to backup node…
-23:19:15 INFO: Sending to backup node…
-23:19:15 INFO: Sending to backup node…
-23:19:15 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:15 INFO: Sending to backup node…
+23:19:15 INFO: Sending to backup nodeï¿½
 23:19:15 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:15 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:16 INFO: Sending to backup node…
+23:19:15 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
+23:19:15 INFO: Sending to backup nodeï¿½
+23:19:15 INFO: Sending to backup nodeï¿½
+23:19:15 INFO: Sending to backup nodeï¿½
+23:19:15 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
+23:19:15 INFO: Sending to backup nodeï¿½
+23:19:15 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
+23:19:15 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
+23:19:16 INFO: Sending to backup nodeï¿½
 23:19:16 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:16 INFO: Sending to backup node…
-23:19:16 INFO: Sending to backup node…
-23:19:16 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:16 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:16 INFO: Sending to backup node…
-23:19:16 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:16 INFO: Sending to backup node…
-23:19:16 INFO: Sending to backup node…
-23:19:16 INFO: Sending to backup node…
+23:19:16 INFO: Sending to backup nodeï¿½
+23:19:16 INFO: Sending to backup nodeï¿½
 23:19:16 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:16 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
+23:19:16 INFO: Sending to backup nodeï¿½
+23:19:16 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
+23:19:16 INFO: Sending to backup nodeï¿½
+23:19:16 INFO: Sending to backup nodeï¿½
+23:19:16 INFO: Sending to backup nodeï¿½
 23:19:16 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:16 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:16 INFO: Sending to backup node…
-23:19:16 INFO: Sending to backup node…
-23:19:16 INFO: Sending to backup node…
-23:19:16 INFO: Sending to backup node…
+23:19:16 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
+23:19:16 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
+23:19:16 INFO: Sending to backup nodeï¿½
+23:19:16 INFO: Sending to backup nodeï¿½
+23:19:16 INFO: Sending to backup nodeï¿½
+23:19:16 INFO: Sending to backup nodeï¿½
 23:19:16 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:16 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:17 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:17 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:17 INFO: Sending to backup node…
-23:19:17 INFO: Sending to backup node…
-23:19:17 INFO: Sending to backup node…
+23:19:17 INFO: Sending to backup nodeï¿½
+23:19:17 INFO: Sending to backup nodeï¿½
+23:19:17 INFO: Sending to backup nodeï¿½
 23:19:17 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:17 INFO: Sending to backup node…
+23:19:17 INFO: Sending to backup nodeï¿½
 23:19:17 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:17 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:17 INFO: Sending to backup node…
+23:19:17 INFO: Sending to backup nodeï¿½
 23:19:17 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:17 INFO: Sending to backup node…
+23:19:17 INFO: Sending to backup nodeï¿½
 23:19:17 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:17 INFO: Sending to backup node…
+23:19:17 INFO: Sending to backup nodeï¿½
 23:19:17 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:17 INFO: Sending to backup node…
+23:19:17 INFO: Sending to backup nodeï¿½
 23:19:17 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
 23:19:17 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
 23:19:17 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:17 INFO: Sending to backup node…
+23:19:17 INFO: Sending to backup nodeï¿½
 23:19:17 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:18 INFO: Sending to backup node…
+23:19:18 INFO: Sending to backup nodeï¿½
 23:19:18 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:18 ERROR: Upload error (index_1772819351.json): [Errno 13] Permission denied: 'F:/index_1772819351.json.part2.temp'
 23:19:18 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
@@ -176,68 +176,68 @@
 23:19:18 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
 23:19:18 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
 23:19:18 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:18 INFO: Sending to backup node…
-23:19:18 INFO: Sending to backup node…
+23:19:18 INFO: Sending to backup nodeï¿½
+23:19:18 INFO: Sending to backup nodeï¿½
 23:19:18 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:18 INFO: Sending to backup node…
-23:19:18 INFO: Sending to backup node…
+23:19:18 INFO: Sending to backup nodeï¿½
+23:19:18 INFO: Sending to backup nodeï¿½
 23:19:18 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:18 INFO: Sending to backup node…
-23:19:18 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:18 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:18 INFO: Sending to backup node…
-23:19:18 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:18 INFO: Sending to backup node…
-23:19:18 INFO: Sending to backup node…
+23:19:18 INFO: Sending to backup nodeï¿½
 23:19:18 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:18 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:18 INFO: Sending to backup node…
+23:19:18 INFO: Sending to backup nodeï¿½
+23:19:18 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
+23:19:18 INFO: Sending to backup nodeï¿½
+23:19:18 INFO: Sending to backup nodeï¿½
+23:19:18 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
+23:19:18 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
+23:19:18 INFO: Sending to backup nodeï¿½
 23:19:19 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:19 INFO: Sending to backup node…
-23:19:19 INFO: Sending to backup node…
+23:19:19 INFO: Sending to backup nodeï¿½
+23:19:19 INFO: Sending to backup nodeï¿½
 23:19:19 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:19 INFO: Sending to backup node…
-23:19:19 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:19 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:19 INFO: Sending to backup node…
-23:19:19 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:19 INFO: Sending to backup node…
-23:19:19 INFO: Sending to backup node…
+23:19:19 INFO: Sending to backup nodeï¿½
 23:19:19 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:19 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:19 INFO: Sending to backup node…
+23:19:19 INFO: Sending to backup nodeï¿½
 23:19:19 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:19 INFO: Sending to backup node…
+23:19:19 INFO: Sending to backup nodeï¿½
+23:19:19 INFO: Sending to backup nodeï¿½
 23:19:19 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:19 INFO: Sending to backup node…
-23:19:19 INFO: Sending to backup node…
+23:19:19 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
+23:19:19 INFO: Sending to backup nodeï¿½
+23:19:19 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
+23:19:19 INFO: Sending to backup nodeï¿½
+23:19:19 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
+23:19:19 INFO: Sending to backup nodeï¿½
+23:19:19 INFO: Sending to backup nodeï¿½
 23:19:19 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:19 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:20 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:20 INFO: Sending to backup node…
+23:19:20 INFO: Sending to backup nodeï¿½
 23:19:20 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
 23:19:20 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
-23:19:20 INFO: Sending to backup node…
+23:19:20 INFO: Sending to backup nodeï¿½
 23:19:20 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:20 INFO: Sending to backup node…
-23:19:20 INFO: Sending to backup node…
+23:19:20 INFO: Sending to backup nodeï¿½
+23:19:20 INFO: Sending to backup nodeï¿½
 23:19:20 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:20 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:20 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:20 INFO: Sending to backup node…
-23:19:20 INFO: Sending to backup node…
+23:19:20 INFO: Sending to backup nodeï¿½
+23:19:20 INFO: Sending to backup nodeï¿½
 23:19:20 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:20 INFO: Sending to backup node…
+23:19:20 INFO: Sending to backup nodeï¿½
 23:19:20 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:20 INFO: Sending to backup node…
+23:19:20 INFO: Sending to backup nodeï¿½
 23:19:20 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:20 INFO: Sending to backup node…
-23:19:20 INFO: Sending to backup node…
+23:19:20 INFO: Sending to backup nodeï¿½
+23:19:20 INFO: Sending to backup nodeï¿½
 23:19:20 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:21 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
 23:19:21 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:21 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819351.json'
-23:19:21 INFO: Sending to backup node…
+23:19:21 INFO: Sending to backup nodeï¿½
 23:19:21 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819351.json'
 23:19:21 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
 23:19:21 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819350.json.part1.temp'
@@ -249,12 +249,12 @@
 23:19:21 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819351.json'
 23:19:21 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819351.json'
 23:19:21 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819351.json'
-23:19:21 INFO: Sending to backup node…
+23:19:21 INFO: Sending to backup nodeï¿½
 23:19:21 INFO: Uploaded index_1772819351.json \u2192 2 part(s)
-23:19:21 INFO: Sending to backup node…
-23:19:21 INFO: Sending to backup node…
+23:19:21 INFO: Sending to backup nodeï¿½
+23:19:21 INFO: Sending to backup nodeï¿½
 23:19:21 INFO: Uploaded index_1772819352.json \u2192 2 part(s)
-23:19:21 INFO: Sending to backup node…
+23:19:21 INFO: Sending to backup nodeï¿½
 23:19:22 INFO: Uploaded index_1772819352.json \u2192 2 part(s)
 23:19:22 INFO: Uploaded index_1772819352.json \u2192 2 part(s)
 23:19:22 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819352.json'
@@ -357,17 +357,17 @@
 23:19:22 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819352.json'
 23:19:22 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819352.json'
 23:19:22 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819352.json'
-23:19:22 INFO: Sending to backup node…
-23:19:22 INFO: Sending to backup node…
-23:19:22 INFO: Sending to backup node…
-23:19:22 INFO: Sending to backup node…
+23:19:22 INFO: Sending to backup nodeï¿½
+23:19:22 INFO: Sending to backup nodeï¿½
+23:19:22 INFO: Sending to backup nodeï¿½
+23:19:22 INFO: Sending to backup nodeï¿½
 23:19:22 INFO: Uploaded index_1772819353.json \u2192 2 part(s)
 23:19:22 INFO: Uploaded index_1772819353.json \u2192 2 part(s)
 23:19:22 INFO: Uploaded index_1772819353.json \u2192 2 part(s)
 23:19:22 INFO: Uploaded index_1772819353.json \u2192 2 part(s)
-23:19:22 INFO: Sending to backup node…
-23:19:23 INFO: Sending to backup node…
-23:19:23 INFO: Sending to backup node…
+23:19:22 INFO: Sending to backup nodeï¿½
+23:19:23 INFO: Sending to backup nodeï¿½
+23:19:23 INFO: Sending to backup nodeï¿½
 23:19:23 INFO: Uploaded index_1772819353.json \u2192 2 part(s)
 23:19:23 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819353.json'
 23:19:23 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819353.json'
@@ -475,16 +475,16 @@
 23:19:23 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819353.json'
 23:19:23 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819353.json'
 23:19:23 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819353.json'
-23:19:23 INFO: Sending to backup node…
-23:19:23 INFO: Sending to backup node…
-23:19:23 INFO: Sending to backup node…
-23:19:23 INFO: Sending to backup node…
+23:19:23 INFO: Sending to backup nodeï¿½
+23:19:23 INFO: Sending to backup nodeï¿½
+23:19:23 INFO: Sending to backup nodeï¿½
+23:19:23 INFO: Sending to backup nodeï¿½
 23:19:23 INFO: Uploaded index_1772819354.json \u2192 2 part(s)
 23:19:23 INFO: Uploaded index_1772819354.json \u2192 2 part(s)
 23:19:23 INFO: Uploaded index_1772819354.json \u2192 2 part(s)
 23:19:23 INFO: Uploaded index_1772819354.json \u2192 2 part(s)
-23:19:24 INFO: Sending to backup node…
-23:19:24 INFO: Sending to backup node…
+23:19:24 INFO: Sending to backup nodeï¿½
+23:19:24 INFO: Sending to backup nodeï¿½
 23:19:24 ERROR: Upload error (index_1772819354.json): [WinError 2] The system cannot find the file specified: 'E:/.vdrive_meta\\history\\index_1772819354.json'
 23:19:24 ERROR: Upload error (index_1772819354.json): [WinError 2] The system cannot find the file specified: 'E:/.vdrive_meta\\history\\index_1772819354.json'
 23:19:24 INFO: Uploaded index_1772819354.json \u2192 2 part(s)
@@ -580,20 +580,20 @@
 23:19:24 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819354.json'
 23:19:24 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
 23:19:24 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
-23:19:24 INFO: Sending to backup node…
-23:19:24 INFO: Sending to backup node…
-23:19:24 INFO: Sending to backup node…
-23:19:24 INFO: Sending to backup node…
+23:19:24 INFO: Sending to backup nodeï¿½
+23:19:24 INFO: Sending to backup nodeï¿½
+23:19:24 INFO: Sending to backup nodeï¿½
+23:19:24 INFO: Sending to backup nodeï¿½
 23:19:24 INFO: Uploaded index_1772819355.json \u2192 2 part(s)
 23:19:24 INFO: Uploaded index_1772819355.json \u2192 2 part(s)
 23:19:24 INFO: Uploaded index_1772819355.json \u2192 2 part(s)
 23:19:24 INFO: Uploaded index_1772819355.json \u2192 2 part(s)
 23:19:24 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
 23:19:24 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
-23:19:24 INFO: Sending to backup node…
-23:19:25 INFO: Sending to backup node…
-23:19:25 INFO: Sending to backup node…
-23:19:25 INFO: Sending to backup node…
+23:19:24 INFO: Sending to backup nodeï¿½
+23:19:25 INFO: Sending to backup nodeï¿½
+23:19:25 INFO: Sending to backup nodeï¿½
+23:19:25 INFO: Sending to backup nodeï¿½
 23:19:25 INFO: Uploaded index_1772819355.json \u2192 2 part(s)
 23:19:25 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819355.json'
 23:19:25 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819355.json'
@@ -681,28 +681,28 @@
 23:19:25 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819355.json'
 23:19:25 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
 23:19:25 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
-23:19:25 INFO: Sending to backup node…
-23:19:25 INFO: Sending to backup node…
-23:19:25 INFO: Sending to backup node…
-23:19:25 INFO: Sending to backup node…
+23:19:25 INFO: Sending to backup nodeï¿½
+23:19:25 INFO: Sending to backup nodeï¿½
+23:19:25 INFO: Sending to backup nodeï¿½
+23:19:25 INFO: Sending to backup nodeï¿½
 23:19:25 INFO: Uploaded index_1772819356.json \u2192 2 part(s)
 23:19:25 INFO: Uploaded index_1772819356.json \u2192 2 part(s)
 23:19:25 INFO: Uploaded index_1772819356.json \u2192 2 part(s)
 23:19:25 INFO: Uploaded index_1772819356.json \u2192 2 part(s)
-23:19:25 INFO: Sending to backup node…
-23:19:25 INFO: Sending to backup node…
-23:19:25 INFO: Sending to backup node…
-23:19:25 INFO: Sending to backup node…
+23:19:25 INFO: Sending to backup nodeï¿½
+23:19:25 INFO: Sending to backup nodeï¿½
+23:19:25 INFO: Sending to backup nodeï¿½
+23:19:25 INFO: Sending to backup nodeï¿½
 23:19:25 INFO: Uploaded index_1772819356.json \u2192 2 part(s)
 23:19:25 INFO: Uploaded index_1772819356.json \u2192 2 part(s)
 23:19:25 INFO: Uploaded index_1772819356.json \u2192 2 part(s)
 23:19:25 INFO: Uploaded index_1772819356.json \u2192 2 part(s)
 23:19:25 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
 23:19:25 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
-23:19:25 INFO: Sending to backup node…
-23:19:25 INFO: Sending to backup node…
-23:19:25 INFO: Sending to backup node…
-23:19:25 INFO: Sending to backup node…
+23:19:25 INFO: Sending to backup nodeï¿½
+23:19:25 INFO: Sending to backup nodeï¿½
+23:19:25 INFO: Sending to backup nodeï¿½
+23:19:25 INFO: Sending to backup nodeï¿½
 23:19:25 INFO: Uploaded index_1772819356.json \u2192 2 part(s)
 23:19:26 INFO: Uploaded index_1772819356.json \u2192 2 part(s)
 23:19:26 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819356.json'
@@ -794,26 +794,26 @@
 23:19:26 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819356.json'
 23:19:26 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819356.json'
 23:19:26 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819356.json'
-23:19:26 INFO: Sending to backup node…
-23:19:26 INFO: Sending to backup node…
-23:19:26 INFO: Sending to backup node…
-23:19:26 INFO: Sending to backup node…
+23:19:26 INFO: Sending to backup nodeï¿½
+23:19:26 INFO: Sending to backup nodeï¿½
+23:19:26 INFO: Sending to backup nodeï¿½
+23:19:26 INFO: Sending to backup nodeï¿½
 23:19:26 INFO: Uploaded index_1772819357.json \u2192 2 part(s)
 23:19:26 INFO: Uploaded index_1772819357.json \u2192 2 part(s)
 23:19:26 INFO: Uploaded index_1772819357.json \u2192 2 part(s)
 23:19:26 INFO: Uploaded index_1772819357.json \u2192 2 part(s)
 23:19:26 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
 23:19:26 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
-23:19:26 INFO: Sending to backup node…
-23:19:26 INFO: Sending to backup node…
+23:19:26 INFO: Sending to backup nodeï¿½
+23:19:26 INFO: Sending to backup nodeï¿½
 23:19:26 ERROR: Upload error (index_1772819357.json): [WinError 2] The system cannot find the file specified: 'E:/index_1772819357.json.part1.temp'
-23:19:26 INFO: Sending to backup node…
+23:19:26 INFO: Sending to backup nodeï¿½
 23:19:26 INFO: Uploaded index_1772819357.json \u2192 2 part(s)
 23:19:26 INFO: Uploaded index_1772819357.json \u2192 2 part(s)
 23:19:26 INFO: Uploaded index_1772819357.json \u2192 2 part(s)
-23:19:26 INFO: Sending to backup node…
-23:19:27 INFO: Sending to backup node…
-23:19:27 INFO: Sending to backup node…
+23:19:26 INFO: Sending to backup nodeï¿½
+23:19:27 INFO: Sending to backup nodeï¿½
+23:19:27 INFO: Sending to backup nodeï¿½
 23:19:27 INFO: Uploaded index_1772819357.json \u2192 2 part(s)
 23:19:27 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819357.json'
 23:19:27 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819357.json'
@@ -901,17 +901,17 @@
 23:19:27 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819357.json'
 23:19:27 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819357.json'
 23:19:27 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819357.json'
-23:19:27 INFO: Sending to backup node…
-23:19:27 INFO: Sending to backup node…
+23:19:27 INFO: Sending to backup nodeï¿½
+23:19:27 INFO: Sending to backup nodeï¿½
 23:19:27 ERROR: Upload error (index_1772819358.json): [WinError 2] The system cannot find the file specified: 'E:/index_1772819358.json.part1.temp'
 23:19:27 ERROR: Upload error (index_1772819358.json): [WinError 2] The system cannot find the file specified: 'E:/index_1772819358.json.part1.temp'
 23:19:27 INFO: Uploaded index_1772819358.json \u2192 2 part(s)
 23:19:27 INFO: Uploaded index_1772819358.json \u2192 2 part(s)
-23:19:27 INFO: Sending to backup node…
-23:19:27 INFO: Sending to backup node…
-23:19:27 INFO: Sending to backup node…
+23:19:27 INFO: Sending to backup nodeï¿½
+23:19:27 INFO: Sending to backup nodeï¿½
+23:19:27 INFO: Sending to backup nodeï¿½
 23:19:27 INFO: Uploaded index_1772819358.json \u2192 2 part(s)
-23:19:27 INFO: Sending to backup node…
+23:19:27 INFO: Sending to backup nodeï¿½
 23:19:27 INFO: Uploaded index_1772819358.json \u2192 2 part(s)
 23:19:27 INFO: Uploaded index_1772819358.json \u2192 2 part(s)
 23:19:28 INFO: Uploaded index_1772819358.json \u2192 2 part(s)
@@ -919,7 +919,7 @@
 23:19:28 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819358.json'
 23:19:28 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819358.json'
 23:19:28 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819358.json'
-23:19:28 INFO: Sending to backup node…
+23:19:28 INFO: Sending to backup nodeï¿½
 23:19:28 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
 23:19:28 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
 23:19:28 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
@@ -1004,18 +1004,18 @@
 23:19:28 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
 23:19:28 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
 23:19:28 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
-23:19:28 INFO: Sending to backup node…
-23:19:28 INFO: Sending to backup node…
-23:19:28 INFO: Sending to backup node…
-23:19:28 INFO: Sending to backup node…
+23:19:28 INFO: Sending to backup nodeï¿½
+23:19:28 INFO: Sending to backup nodeï¿½
+23:19:28 INFO: Sending to backup nodeï¿½
+23:19:28 INFO: Sending to backup nodeï¿½
 23:19:28 INFO: Uploaded index_1772819359.json \u2192 2 part(s)
 23:19:28 INFO: Uploaded index_1772819359.json \u2192 2 part(s)
 23:19:28 INFO: Uploaded index_1772819359.json \u2192 2 part(s)
 23:19:28 INFO: Uploaded index_1772819359.json \u2192 2 part(s)
-23:19:28 INFO: Sending to backup node…
-23:19:29 INFO: Sending to backup node…
-23:19:29 INFO: Sending to backup node…
-23:19:29 INFO: Sending to backup node…
+23:19:28 INFO: Sending to backup nodeï¿½
+23:19:29 INFO: Sending to backup nodeï¿½
+23:19:29 INFO: Sending to backup nodeï¿½
+23:19:29 INFO: Sending to backup nodeï¿½
 23:19:29 INFO: Uploaded index_1772819359.json \u2192 2 part(s)
 23:19:29 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819359.json'
 23:19:29 INFO: Uploaded index_1772819359.json \u2192 2 part(s)
@@ -1113,19 +1113,19 @@
 23:19:29 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
 23:19:29 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
 23:19:29 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
-23:19:29 INFO: Sending to backup node…
-23:19:29 INFO: Sending to backup node…
-23:19:29 INFO: Sending to backup node…
-23:19:29 INFO: Sending to backup node…
+23:19:29 INFO: Sending to backup nodeï¿½
+23:19:29 INFO: Sending to backup nodeï¿½
+23:19:29 INFO: Sending to backup nodeï¿½
+23:19:29 INFO: Sending to backup nodeï¿½
 23:19:29 INFO: Uploaded index_1772819360.json \u2192 2 part(s)
 23:19:29 INFO: Uploaded index_1772819360.json \u2192 2 part(s)
 23:19:29 INFO: Uploaded index_1772819360.json \u2192 2 part(s)
 23:19:29 INFO: Uploaded index_1772819360.json \u2192 2 part(s)
 23:19:29 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
-23:19:29 INFO: Sending to backup node…
-23:19:29 INFO: Sending to backup node…
-23:19:30 INFO: Sending to backup node…
-23:19:30 INFO: Sending to backup node…
+23:19:29 INFO: Sending to backup nodeï¿½
+23:19:29 INFO: Sending to backup nodeï¿½
+23:19:30 INFO: Sending to backup nodeï¿½
+23:19:30 INFO: Sending to backup nodeï¿½
 23:19:30 INFO: Uploaded index_1772819360.json \u2192 2 part(s)
 23:19:30 INFO: Uploaded index_1772819360.json \u2192 2 part(s)
 23:19:30 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819360.json'
@@ -1208,79 +1208,79 @@
 23:19:30 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819360.json'
 23:19:30 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
 23:19:30 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819351.json.part1.temp'
-23:19:30 INFO: Sending to backup node…
-23:19:30 INFO: Sending to backup node…
-23:19:30 INFO: Sending to backup node…
-23:19:30 INFO: Sending to backup node…
+23:19:30 INFO: Sending to backup nodeï¿½
+23:19:30 INFO: Sending to backup nodeï¿½
+23:19:30 INFO: Sending to backup nodeï¿½
+23:19:30 INFO: Sending to backup nodeï¿½
 23:19:30 INFO: Uploaded index_1772819361.json \u2192 2 part(s)
 23:19:30 INFO: Uploaded index_1772819361.json \u2192 2 part(s)
 23:19:30 INFO: Uploaded index_1772819361.json \u2192 2 part(s)
 23:19:30 INFO: Uploaded index_1772819361.json \u2192 2 part(s)
-23:19:30 INFO: Sending to backup node…
-23:19:30 INFO: Sending to backup node…
-23:19:30 INFO: Sending to backup node…
-23:19:30 INFO: Sending to backup node…
+23:19:30 INFO: Sending to backup nodeï¿½
+23:19:30 INFO: Sending to backup nodeï¿½
+23:19:30 INFO: Sending to backup nodeï¿½
+23:19:30 INFO: Sending to backup nodeï¿½
 23:19:30 INFO: Uploaded index_1772819361.json \u2192 2 part(s)
 23:19:30 INFO: Uploaded index_1772819361.json \u2192 2 part(s)
 23:19:30 INFO: Uploaded index_1772819361.json \u2192 2 part(s)
-23:19:30 INFO: Sending to backup node…
+23:19:30 INFO: Sending to backup nodeï¿½
 23:19:30 INFO: Uploaded index_1772819361.json \u2192 2 part(s)
-23:19:30 INFO: Sending to backup node…
-23:19:31 INFO: Sending to backup node…
+23:19:30 INFO: Sending to backup nodeï¿½
+23:19:31 INFO: Sending to backup nodeï¿½
 23:19:31 INFO: Uploaded index_1772819361.json \u2192 2 part(s)
-23:19:31 INFO: Sending to backup node…
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 INFO: Uploaded index_1772819361.json \u2192 2 part(s)
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819352.json.part1.temp'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819352.json.part1.temp'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819352.json.part1.temp'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819352.json.part1.temp'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819352.json.part1.temp'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
-23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819352.json.part1.temp'
+23:19:31 INFO: Sending to backup nodeï¿½
 23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
 23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
 23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
 23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
 23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
 23:19:31 INFO: Uploaded index_1772819361.json \u2192 2 part(s)
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819352.json.part1.temp'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819352.json.part1.temp'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819352.json.part1.temp'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819352.json.part1.temp'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819352.json.part1.temp'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819352.json.part1.temp'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
+23:19:31 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819361.json'
 23:19:31 INFO: Uploaded index_1772819361.json \u2192 2 part(s)
-23:19:31 INFO: Sending to backup node…
-23:19:31 INFO: Sending to backup node…
-23:19:31 INFO: Sending to backup node…
-23:19:31 INFO: Sending to backup node…
+23:19:31 INFO: Uploaded index_1772819361.json \u2192 2 part(s)
+23:19:31 INFO: Sending to backup nodeï¿½
+23:19:31 INFO: Sending to backup nodeï¿½
+23:19:31 INFO: Sending to backup nodeï¿½
+23:19:31 INFO: Sending to backup nodeï¿½
 23:19:31 INFO: Uploaded index_1772819362.json \u2192 2 part(s)
 23:19:31 INFO: Uploaded index_1772819362.json \u2192 2 part(s)
 23:19:31 INFO: Uploaded index_1772819362.json \u2192 2 part(s)
 23:19:31 INFO: Uploaded index_1772819362.json \u2192 2 part(s)
-23:19:31 INFO: Sending to backup node…
-23:19:31 INFO: Sending to backup node…
-23:19:31 INFO: Sending to backup node…
-23:19:31 INFO: Sending to backup node…
+23:19:31 INFO: Sending to backup nodeï¿½
+23:19:31 INFO: Sending to backup nodeï¿½
+23:19:31 INFO: Sending to backup nodeï¿½
+23:19:31 INFO: Sending to backup nodeï¿½
 23:19:31 INFO: Uploaded index_1772819362.json \u2192 2 part(s)
 23:19:31 INFO: Uploaded index_1772819362.json \u2192 2 part(s)
 23:19:31 INFO: Uploaded index_1772819362.json \u2192 2 part(s)
 23:19:31 INFO: Uploaded index_1772819362.json \u2192 2 part(s)
-23:19:31 INFO: Sending to backup node…
-23:19:32 INFO: Sending to backup node…
-23:19:32 INFO: Sending to backup node…
-23:19:32 INFO: Sending to backup node…
+23:19:31 INFO: Sending to backup nodeï¿½
+23:19:32 INFO: Sending to backup nodeï¿½
+23:19:32 INFO: Sending to backup nodeï¿½
+23:19:32 INFO: Sending to backup nodeï¿½
 23:19:32 INFO: Uploaded index_1772819362.json \u2192 2 part(s)
 23:19:32 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819362.json'
 23:19:32 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819362.json'
@@ -1340,26 +1340,26 @@
 23:19:32 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819353.json.part1.temp'
 23:19:32 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819353.json.part1.temp'
 23:19:32 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819353.json.part1.temp'
-23:19:32 INFO: Sending to backup node…
-23:19:32 INFO: Sending to backup node…
-23:19:32 INFO: Sending to backup node…
-23:19:32 INFO: Sending to backup node…
+23:19:32 INFO: Sending to backup nodeï¿½
+23:19:32 INFO: Sending to backup nodeï¿½
+23:19:32 INFO: Sending to backup nodeï¿½
+23:19:32 INFO: Sending to backup nodeï¿½
 23:19:32 INFO: Uploaded index_1772819363.json \u2192 2 part(s)
 23:19:32 INFO: Uploaded index_1772819363.json \u2192 2 part(s)
 23:19:32 INFO: Uploaded index_1772819363.json \u2192 2 part(s)
 23:19:32 INFO: Uploaded index_1772819363.json \u2192 2 part(s)
-23:19:32 INFO: Sending to backup node…
-23:19:32 INFO: Sending to backup node…
-23:19:32 INFO: Sending to backup node…
-23:19:32 INFO: Sending to backup node…
+23:19:32 INFO: Sending to backup nodeï¿½
+23:19:32 INFO: Sending to backup nodeï¿½
+23:19:32 INFO: Sending to backup nodeï¿½
+23:19:32 INFO: Sending to backup nodeï¿½
 23:19:32 INFO: Uploaded index_1772819363.json \u2192 2 part(s)
 23:19:32 INFO: Uploaded index_1772819363.json \u2192 2 part(s)
 23:19:32 INFO: Uploaded index_1772819363.json \u2192 2 part(s)
 23:19:32 INFO: Uploaded index_1772819363.json \u2192 2 part(s)
-23:19:32 INFO: Sending to backup node…
-23:19:32 INFO: Sending to backup node…
-23:19:33 INFO: Sending to backup node…
-23:19:33 INFO: Sending to backup node…
+23:19:32 INFO: Sending to backup nodeï¿½
+23:19:32 INFO: Sending to backup nodeï¿½
+23:19:33 INFO: Sending to backup nodeï¿½
+23:19:33 INFO: Sending to backup nodeï¿½
 23:19:33 INFO: Uploaded index_1772819363.json \u2192 2 part(s)
 23:19:33 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819363.json'
 23:19:33 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819363.json'
@@ -1417,18 +1417,18 @@
 23:19:33 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819363.json'
 23:19:33 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819354.json.part1.temp'
 23:19:33 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819363.json'
-23:19:33 INFO: Sending to backup node…
-23:19:33 INFO: Sending to backup node…
-23:19:33 INFO: Sending to backup node…
-23:19:33 INFO: Sending to backup node…
+23:19:33 INFO: Sending to backup nodeï¿½
+23:19:33 INFO: Sending to backup nodeï¿½
+23:19:33 INFO: Sending to backup nodeï¿½
+23:19:33 INFO: Sending to backup nodeï¿½
 23:19:33 INFO: Uploaded index_1772819364.json \u2192 2 part(s)
 23:19:33 INFO: Uploaded index_1772819364.json \u2192 2 part(s)
 23:19:33 INFO: Uploaded index_1772819364.json \u2192 2 part(s)
 23:19:33 INFO: Uploaded index_1772819364.json \u2192 2 part(s)
-23:19:33 INFO: Sending to backup node…
-23:19:33 INFO: Sending to backup node…
-23:19:33 INFO: Sending to backup node…
-23:19:33 INFO: Sending to backup node…
+23:19:33 INFO: Sending to backup nodeï¿½
+23:19:33 INFO: Sending to backup nodeï¿½
+23:19:33 INFO: Sending to backup nodeï¿½
+23:19:33 INFO: Sending to backup nodeï¿½
 23:19:33 INFO: Uploaded index_1772819364.json \u2192 2 part(s)
 23:19:33 INFO: Uploaded index_1772819364.json \u2192 2 part(s)
 23:19:33 INFO: Uploaded index_1772819364.json \u2192 2 part(s)
@@ -1510,10 +1510,10 @@
 23:19:34 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819355.json.part1.temp'
 23:19:34 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819355.json.part1.temp'
 23:19:34 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819355.json.part1.temp'
-23:19:34 INFO: Sending to backup node…
-23:19:34 INFO: Sending to backup node…
-23:19:34 INFO: Sending to backup node…
-23:19:35 INFO: Sending to backup node…
+23:19:34 INFO: Sending to backup nodeï¿½
+23:19:34 INFO: Sending to backup nodeï¿½
+23:19:34 INFO: Sending to backup nodeï¿½
+23:19:35 INFO: Sending to backup nodeï¿½
 23:19:35 INFO: Uploaded index_1772819365.json \u2192 2 part(s)
 23:19:35 INFO: Uploaded index_1772819365.json \u2192 2 part(s)
 23:19:35 INFO: Uploaded index_1772819365.json \u2192 2 part(s)
@@ -1624,17 +1624,17 @@
 23:19:35 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819365.json'
 23:19:35 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819365.json'
 23:19:35 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819365.json'
-23:19:35 INFO: Sending to backup node…
-23:19:35 INFO: Sending to backup node…
-23:19:35 INFO: Sending to backup node…
-23:19:35 INFO: Sending to backup node…
+23:19:35 INFO: Sending to backup nodeï¿½
+23:19:35 INFO: Sending to backup nodeï¿½
+23:19:35 INFO: Sending to backup nodeï¿½
+23:19:35 INFO: Sending to backup nodeï¿½
 23:19:35 INFO: Uploaded index_1772819366.json \u2192 2 part(s)
 23:19:35 INFO: Uploaded index_1772819366.json \u2192 2 part(s)
 23:19:35 INFO: Uploaded index_1772819366.json \u2192 2 part(s)
 23:19:35 INFO: Uploaded index_1772819366.json \u2192 2 part(s)
-23:19:35 INFO: Sending to backup node…
-23:19:35 INFO: Sending to backup node…
-23:19:36 INFO: Sending to backup node…
+23:19:35 INFO: Sending to backup nodeï¿½
+23:19:35 INFO: Sending to backup nodeï¿½
+23:19:36 INFO: Sending to backup nodeï¿½
 23:19:36 ERROR: Upload error (index_1772819366.json): [WinError 2] The system cannot find the file specified: 'E:/index_1772819366.json.part1.temp'
 23:19:36 INFO: Uploaded index_1772819366.json \u2192 2 part(s)
 23:19:36 INFO: Uploaded index_1772819366.json \u2192 2 part(s)
@@ -1726,18 +1726,18 @@
 23:19:36 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819366.json'
 23:19:36 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819366.json'
 23:19:36 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819366.json'
-23:19:36 INFO: Sending to backup node…
-23:19:36 INFO: Sending to backup node…
-23:19:36 INFO: Sending to backup node…
-23:19:36 INFO: Sending to backup node…
+23:19:36 INFO: Sending to backup nodeï¿½
+23:19:36 INFO: Sending to backup nodeï¿½
+23:19:36 INFO: Sending to backup nodeï¿½
+23:19:36 INFO: Sending to backup nodeï¿½
 23:19:36 INFO: Uploaded index_1772819367.json \u2192 2 part(s)
 23:19:36 INFO: Uploaded index_1772819367.json \u2192 2 part(s)
 23:19:36 INFO: Uploaded index_1772819367.json \u2192 2 part(s)
 23:19:36 INFO: Uploaded index_1772819367.json \u2192 2 part(s)
-23:19:36 INFO: Sending to backup node…
-23:19:36 INFO: Sending to backup node…
-23:19:36 INFO: Sending to backup node…
-23:19:36 INFO: Sending to backup node…
+23:19:36 INFO: Sending to backup nodeï¿½
+23:19:36 INFO: Sending to backup nodeï¿½
+23:19:36 INFO: Sending to backup nodeï¿½
+23:19:36 INFO: Sending to backup nodeï¿½
 23:19:36 INFO: Uploaded index_1772819367.json \u2192 2 part(s)
 23:19:36 INFO: Uploaded index_1772819367.json \u2192 2 part(s)
 23:19:37 INFO: Uploaded index_1772819367.json \u2192 2 part(s)
@@ -1833,10 +1833,10 @@
 23:19:37 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819367.json'
 23:19:37 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819367.json'
 23:19:37 ERROR: Task error: [Errno 2] No such file or directory: 'E:/index_1772819358.json.part1.temp'
-23:19:37 INFO: Sending to backup node…
-23:19:37 INFO: Sending to backup node…
-23:19:37 INFO: Sending to backup node…
-23:19:37 INFO: Sending to backup node…
+23:19:37 INFO: Sending to backup nodeï¿½
+23:19:37 INFO: Sending to backup nodeï¿½
+23:19:37 INFO: Sending to backup nodeï¿½
+23:19:37 INFO: Sending to backup nodeï¿½
 23:19:38 INFO: Uploaded index_1772819368.json \u2192 2 part(s)
 23:19:38 INFO: Uploaded index_1772819368.json \u2192 2 part(s)
 23:19:38 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819368.json'
@@ -1904,10 +1904,10 @@
 23:19:38 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819368.json'
 23:19:38 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819368.json'
 23:19:38 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819368.json'
-23:19:39 INFO: Sending to backup node…
-23:19:39 INFO: Sending to backup node…
-23:19:39 INFO: Sending to backup node…
-23:19:39 INFO: Sending to backup node…
+23:19:39 INFO: Sending to backup nodeï¿½
+23:19:39 INFO: Sending to backup nodeï¿½
+23:19:39 INFO: Sending to backup nodeï¿½
+23:19:39 INFO: Sending to backup nodeï¿½
 23:19:40 INFO: Uploaded index_1772819369.json \u2192 2 part(s)
 23:19:40 INFO: Uploaded index_1772819369.json \u2192 2 part(s)
 23:19:40 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819369.json'
@@ -1971,10 +1971,10 @@
 23:19:40 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819369.json'
 23:19:40 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819369.json'
 23:19:40 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819369.json'
-23:19:40 INFO: Sending to backup node…
-23:19:40 INFO: Sending to backup node…
-23:19:40 INFO: Sending to backup node…
-23:19:40 INFO: Sending to backup node…
+23:19:40 INFO: Sending to backup nodeï¿½
+23:19:40 INFO: Sending to backup nodeï¿½
+23:19:40 INFO: Sending to backup nodeï¿½
+23:19:40 INFO: Sending to backup nodeï¿½
 23:19:41 INFO: Uploaded index_1772819370.json \u2192 2 part(s)
 23:19:41 INFO: Uploaded index_1772819370.json \u2192 2 part(s)
 23:19:41 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819370.json'
@@ -2066,10 +2066,10 @@
 23:19:41 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819370.json'
 23:19:41 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819370.json'
 23:19:41 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819370.json'
-23:19:41 INFO: Sending to backup node…
-23:19:41 INFO: Sending to backup node…
-23:19:41 INFO: Sending to backup node…
-23:19:41 INFO: Sending to backup node…
+23:19:41 INFO: Sending to backup nodeï¿½
+23:19:41 INFO: Sending to backup nodeï¿½
+23:19:41 INFO: Sending to backup nodeï¿½
+23:19:41 INFO: Sending to backup nodeï¿½
 23:19:42 INFO: Uploaded index_1772819371.json \u2192 2 part(s)
 23:19:42 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819371.json'
 23:19:42 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819371.json'
@@ -2279,30 +2279,30 @@
 23:19:43 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819372.json'
 23:19:43 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819372.json'
 23:19:43 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819372.json'
-23:19:43 INFO: Sending to backup node…
-23:19:43 INFO: Sending to backup node…
-23:19:43 INFO: Sending to backup node…
-23:19:43 INFO: Sending to backup node…
+23:19:43 INFO: Sending to backup nodeï¿½
+23:19:43 INFO: Sending to backup nodeï¿½
+23:19:43 INFO: Sending to backup nodeï¿½
+23:19:43 INFO: Sending to backup nodeï¿½
 23:20:08 INFO: File watcher active on E:/
 23:20:08 INFO: Drives confirmed: ['E:/', 'F:/']
 23:20:11 INFO: File watcher active on E:/
 23:20:11 INFO: Drives confirmed: ['E:/', 'F:/']
 23:20:14 INFO: Backup nodes: ['172.18.106.3']
-23:20:37 INFO: Sending to backup node…
-23:20:37 INFO: Sending to backup node…
+23:20:37 INFO: Sending to backup nodeï¿½
+23:20:37 INFO: Sending to backup nodeï¿½
 23:20:41 ERROR: Upload error (index_1772819430.json): [WinError 2] The system cannot find the file specified: 'E:/index_1772819430.json.part1.temp'
 23:20:46 INFO: Uploaded index_1772819430.json \u2192 2 part(s)
 23:20:46 INFO: Uploaded index_1772819430.json \u2192 2 part(s)
-23:20:52 INFO: Sending to backup node…
-23:20:57 INFO: Sending to backup node…
-23:20:57 INFO: Sending to backup node…
+23:20:52 INFO: Sending to backup nodeï¿½
+23:20:57 INFO: Sending to backup nodeï¿½
+23:20:57 INFO: Sending to backup nodeï¿½
 23:21:00 INFO: Uploaded index_1772819430.json \u2192 2 part(s)
 23:21:04 INFO: Uploaded index_1772819430.json \u2192 2 part(s)
 23:21:06 INFO: Uploaded index_1772819430.json \u2192 2 part(s)
 23:21:14 INFO: User paused
-23:21:15 INFO: Sending to backup node…
+23:21:15 INFO: Sending to backup nodeï¿½
 23:21:15 INFO: Uploaded index_1772819430.json \u2192 2 part(s)
-23:21:19 INFO: Sending to backup node…
+23:21:19 INFO: Sending to backup nodeï¿½
 23:21:22 ERROR: Upload error (index_1772819430.json): [WinError 2] The system cannot find the file specified: 'E:/.vdrive_meta\\history\\index_1772819430.json'
 23:21:23 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819430.json'
 23:21:23 ERROR: Task error: [Errno 2] No such file or directory: 'E:/.vdrive_meta\\history\\index_1772819430.json'
@@ -8277,7 +8277,7 @@
 23:34:39 INFO: File watcher active on E:/
 23:34:39 INFO: Drives confirmed: ['E:/', 'F:/']
 23:34:40 WARNING: Drives disconnected: ['E:/', 'F:/']
-23:34:40 WARNING: Selected drives missing: ['E:/', 'F:/'] — paused
+23:34:40 WARNING: Selected drives missing: ['E:/', 'F:/'] ï¿½ paused
 23:34:46 INFO: Drives connected: ['E:/', 'F:/']
 23:34:51 INFO: File watcher active on E:/
 23:34:51 INFO: Drives confirmed: ['E:/', 'F:/']
@@ -8299,7 +8299,7 @@
 23:43:37 INFO: Uploaded OIP.png \u2192 2 part(s)
 23:44:15 INFO: Uploaded Jujutsu Kaisen S03E03 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
 23:45:45 WARNING: Drives disconnected: ['E:/', 'F:/']
-23:45:45 WARNING: Selected drives missing: ['E:/', 'F:/'] — paused
+23:45:45 WARNING: Selected drives missing: ['E:/', 'F:/'] ï¿½ paused
 23:45:49 INFO: Application closed
 23:46:01 INFO: File watcher active on E:/
 23:46:01 INFO: Drives confirmed: ['E:/', 'F:/']
@@ -8348,14 +8348,15 @@
 00:05:47 WARNING: Folder upload cancelled.
 00:05:57 INFO: Purge All completed
 00:05:58 INFO: Application closed
+17:19:35 INFO: Application closed
 14:55:33 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
 14:55:33 INFO: File watcher active on E:/
 14:55:33 INFO: Drives confirmed: ['E:/', 'F:/']
 14:56:11 INFO: Uploaded Jujutsu Kaisen S03E06 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
 14:57:34 WARNING: Drives disconnected: ['E:/', 'F:/']
-14:57:34 WARNING: Selected drives missing: ['E:/', 'F:/'] — paused
+14:57:34 WARNING: Selected drives missing: ['E:/', 'F:/'] ï¿½ paused
 14:57:38 INFO: Drives connected: ['E:/', 'F:/']
-14:57:38 INFO: All selected drives reconnected — reloading index
+14:57:38 INFO: All selected drives reconnected ï¿½ reloading index
 14:57:38 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (1 entries)
 14:58:20 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (1 entries)
 14:58:20 INFO: File watcher active on E:/
@@ -8364,18 +8365,18 @@
 14:58:34 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (1 entries)
 14:58:34 INFO: File watcher active on E:/
 14:58:34 INFO: Drives confirmed: ['E:/', 'F:/']
-14:59:48 INFO: Compressing Sicko Mode Meme SFX.mp3 (lzma)…
+14:59:48 INFO: Compressing Sicko Mode Meme SFX.mp3 (lzma)ï¿½
 14:59:49 INFO: Uploaded Sicko Mode Meme SFX.mp3 \u2192 2 part(s)
-15:00:04 INFO: Compressing Jujutsu Kaisen S03E03 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
-15:00:21 INFO: Compressing Jujutsu Kaisen S03E04 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
+15:00:04 INFO: Compressing Jujutsu Kaisen S03E03 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)ï¿½
+15:00:21 INFO: Compressing Jujutsu Kaisen S03E04 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)ï¿½
 15:00:53 INFO: Application closed
 15:01:05 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (2 entries)
 15:01:05 INFO: File watcher active on E:/
 15:01:05 INFO: Drives confirmed: ['E:/', 'F:/']
-15:01:18 INFO: Compressing Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
+15:01:18 INFO: Compressing Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)ï¿½
 15:01:26 INFO: Purge All completed
-15:01:33 INFO: Compressing Jujutsu Kaisen S03E06 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
-15:02:52 INFO: Compressing Jujutsu Kaisen S03E03 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
+15:01:33 INFO: Compressing Jujutsu Kaisen S03E06 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)ï¿½
+15:02:52 INFO: Compressing Jujutsu Kaisen S03E03 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)ï¿½
 15:03:38 INFO: Uploaded Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
 15:03:53 INFO: Uploaded Jujutsu Kaisen S03E06 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
 15:05:26 INFO: Uploaded Jujutsu Kaisen S03E03 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
@@ -8385,9 +8386,9 @@
 20:34:01 INFO: Drives confirmed: ['E:/', 'F:/']
 20:34:09 INFO: Purge All completed
 20:35:18 INFO: Uploaded Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
-20:35:38 INFO: Compressing OIP.png (zip)…
+20:35:38 INFO: Compressing OIP.png (zip)ï¿½
 20:35:38 INFO: Uploaded OIP.png \u2192 2 part(s)
-20:35:59 INFO: Compressing Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
+20:35:59 INFO: Compressing Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)ï¿½
 20:36:34 WARNING: Cancel requested
 20:36:39 WARNING: Cancel requested
 20:36:58 WARNING: Cancel requested
@@ -8400,10 +8401,10 @@
 20:37:40 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (2 entries)
 20:37:40 INFO: File watcher active on E:/
 20:37:40 INFO: Drives confirmed: ['E:/', 'F:/']
-20:37:46 INFO: Post-process: merging parts for Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv…
-20:37:46 INFO: Post-process: compressing Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (zip)…
-20:37:54 INFO: Post-process: removing old parts for Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv…
-20:37:54 INFO: Post-process: re-splitting Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv…
+20:37:46 INFO: Post-process: merging parts for Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkvï¿½
+20:37:46 INFO: Post-process: compressing Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (zip)ï¿½
+20:37:54 INFO: Post-process: removing old parts for Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkvï¿½
+20:37:54 INFO: Post-process: re-splitting Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkvï¿½
 20:38:18 INFO: Post-process done: Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 compressed (zip)
 20:40:24 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (2 entries)
 20:40:24 INFO: File watcher active on E:/
@@ -8422,7 +8423,7 @@
 22:40:12 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
 22:40:12 INFO: File watcher active on E:/
 22:40:12 INFO: Drives confirmed: ['E:/', 'F:/']
-22:40:27 INFO: Compressing pycharm-2025.3.3.exe (zip)…
+22:40:27 INFO: Compressing pycharm-2025.3.3.exe (zip)ï¿½
 22:40:34 WARNING: Cancel requested
 22:40:36 WARNING: Cancel requested
 22:40:38 INFO: Application closed
@@ -8438,11 +8439,11 @@
 16:44:10 INFO: File watcher active on E:/
 16:44:10 INFO: Drives confirmed: ['E:/', 'F:/']
 16:46:17 INFO: Uploaded Invincible.S04e03.I.Gotta.Get.Some.Air.1080P.Hindi.English.Esubs.Vegamovies.is.mkv \u2192 2 part(s)
-16:46:47 INFO: Compressing Jujutsu Kaisen S03E08 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (zip)…
+16:46:47 INFO: Compressing Jujutsu Kaisen S03E08 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (zip)ï¿½
 16:47:30 INFO: Uploaded Jujutsu Kaisen S03E08 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
-16:48:04 INFO: Compressing Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)…
+16:48:04 INFO: Compressing Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (lzma)ï¿½
 16:50:32 INFO: Uploaded Jujutsu Kaisen S03E05 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv \u2192 2 part(s)
-16:57:52 INFO: Compressing Jujutsu Kaisen S03E08 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (zip)…
+16:57:52 INFO: Compressing Jujutsu Kaisen S03E08 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv (zip)ï¿½
 16:57:54 WARNING: Cancel requested
 16:57:56 WARNING: Upload cancelled: Jujutsu Kaisen S03E08 1080p x265 10bit WEB-DL Multi Audio ESub-Vegamovies.is.mkv
 16:58:22 INFO: Uploaded Vooks\linuxbasicsforhackers.pdf \u2192 2 part(s)
@@ -8451,3 +8452,133 @@
 16:59:13 INFO: Settings saved and applied
 16:59:17 INFO: Settings saved and applied
 16:59:22 INFO: Settings saved and applied
+17:22:23 INFO: Settings saved and applied
+17:22:28 INFO: Application closed
+17:23:21 INFO: Application closed
+17:23:36 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (5 entries)
+17:23:36 INFO: File watcher active on E:/
+17:23:36 INFO: Drives confirmed: ['E:/', 'F:/']
+17:23:53 INFO: Compressing Invincible.S04e03.I.Gotta.Get.Some.Air.1080P.Hindi.English.Esubs.Vegamovies.is.mkv (lzma)…
+17:23:55 WARNING: Cancel requested
+17:23:56 WARNING: Upload cancelled: Invincible.S04e03.I.Gotta.Get.Some.Air.1080P.Hindi.English.Esubs.Vegamovies.is.mkv
+17:23:59 INFO: Application closed
+00:56:59 INFO: Application closed
+01:34:59 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (5 entries)
+01:34:59 INFO: File watcher active on E:/
+01:34:59 INFO: Found 1 incomplete file(s) — opening repair dialog.
+01:34:59 INFO: Drives confirmed: ['E:/', 'F:/']
+01:59:43 INFO: Application closed
+02:22:28 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (5 entries)
+02:22:28 INFO: File watcher active on E:/
+02:22:28 INFO: Found 1 incomplete file(s) — opening repair dialog.
+02:22:28 INFO: Drives confirmed: ['E:/', 'F:/']
+02:24:13 WARNING: Cancel requested
+02:24:14 WARNING: Upload cancelled: Invincible.S04e03.I.Gotta.Get.Some.Air.1080P.Hindi.English.Esubs.Vegamovies.is.mkv
+02:25:19 INFO: Uploaded entities_region.zip \u2192 2 part(s)
+02:26:33 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (6 entries)
+02:26:33 INFO: File watcher active on E:/
+02:26:33 INFO: Found 1 incomplete file(s) — opening repair dialog.
+02:26:33 INFO: Drives confirmed: ['E:/', 'F:/']
+02:27:38 INFO: Uploaded entities_region.zip \u2192 2 part(s)
+02:29:03 WARNING: Cancel requested
+02:29:04 WARNING: Upload cancelled: entities_region.zip
+02:29:14 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (5 entries)
+02:29:14 INFO: File watcher active on E:/
+02:29:14 INFO: Found 1 incomplete file(s) — opening repair dialog.
+02:29:14 INFO: Drives confirmed: ['E:/', 'F:/']
+02:30:12 INFO: Uploaded entities_region.zip \u2192 2 part(s)
+02:30:18 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (6 entries)
+02:30:18 INFO: File watcher active on E:/
+02:30:18 INFO: Found 1 incomplete file(s) — opening repair dialog.
+02:30:18 INFO: Drives confirmed: ['E:/', 'F:/']
+02:30:26 INFO: Purge All completed
+02:31:29 WARNING: Cancel requested
+02:31:30 WARNING: Upload cancelled: entities_region.zip
+02:32:34 INFO: Uploaded entities_region.zip \u2192 2 part(s)
+02:33:03 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (1 entries)
+02:33:03 INFO: File watcher active on E:/
+02:33:03 INFO: Drives confirmed: ['E:/', 'F:/']
+02:33:12 INFO: Settings saved and applied
+02:34:39 INFO: Settings saved and applied
+02:34:43 INFO: Uploaded entities_region.zip \u2192 2 part(s)
+02:50:52 INFO: Application closed
+12:33:32 INFO: Drives connected: ['E:/', 'F:/']
+12:33:40 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+12:33:40 INFO: File watcher active on E:/
+12:33:40 INFO: Drives confirmed: ['E:/', 'F:/']
+12:34:00 INFO: Backup disabled
+12:36:10 INFO: Backup disabled
+12:39:00 INFO: Backup disabled
+12:40:08 INFO: Backup disabled
+13:08:31 INFO: Backup disabled
+13:08:33 INFO: Backup nodes: ['172.18.105.139']
+13:08:48 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+13:08:48 INFO: File watcher active on E:/
+13:08:48 INFO: Drives confirmed: ['E:/', 'F:/']
+13:08:50 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+13:08:50 INFO: File watcher active on E:/
+13:08:50 INFO: Drives confirmed: ['E:/', 'F:/']
+13:09:10 INFO: Sending to backup node…
+13:09:11 INFO: Uploaded Admit Card.pdf \u2192 2 part(s)
+13:09:23 INFO: Backup disabled
+13:15:20 WARNING: Drives disconnected: ['E:/', 'F:/']
+13:15:20 WARNING: Selected drives missing: ['E:/', 'F:/'] — paused
+13:25:49 INFO: Drives connected: ['E:/', 'F:/']
+13:25:55 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (1 entries)
+13:25:55 INFO: File watcher active on E:/
+13:25:55 INFO: Drives confirmed: ['E:/', 'F:/']
+13:25:57 INFO: Backup disabled
+13:27:40 INFO: Backup disabled
+21:50:53 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (1 entries)
+21:50:53 INFO: File watcher active on E:/
+21:50:53 INFO: Drives confirmed: ['E:/', 'F:/']
+21:53:36 INFO: Backup nodes found: ['172.18.105.111']
+21:54:00 INFO: Sending to backup node…
+21:54:01 INFO: Uploaded Install 2XKO.exe \u2192 2 part(s)
+21:54:34 INFO: Settings saved and applied
+21:54:39 INFO: Purge All completed
+21:56:05 INFO: Sending to backup node…
+21:56:06 INFO: Uploaded OIP.png \u2192 2 part(s)
+21:56:20 INFO: Sending to backup node…
+21:56:20 INFO: Uploaded OIP.png \u2192 2 part(s)
+21:57:03 INFO: Purge All completed
+21:57:14 INFO: Sending to backup node…
+21:57:14 INFO: Uploaded OIP.png \u2192 2 part(s)
+21:57:21 INFO: Purge All completed
+21:57:37 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+21:57:37 INFO: File watcher active on E:/
+21:57:37 INFO: Drives confirmed: ['E:/', 'F:/']
+21:57:47 INFO: Sending to backup node…
+21:57:47 INFO: Uploaded Admit Card.pdf \u2192 2 part(s)
+21:58:59 INFO: Sending to backup node…
+21:59:15 INFO: Uploaded entities_region.zip \u2192 2 part(s)
+22:01:55 INFO: Sending to backup node…
+22:01:55 INFO: Sending to backup node…
+22:02:08 INFO: Uploaded entities_region.zip \u2192 2 part(s)
+22:02:08 INFO: Uploaded entities_region.zip \u2192 2 part(s)
+22:03:33 INFO: Purge All completed
+22:03:37 INFO: Application closed
+15:00:02 INFO: Backup disabled
+15:00:08 WARNING: Backup discovery found no nodes. Add the server IP in Settings \u2192 Backup node IPs and try again.
+15:02:29 INFO: Backup disabled
+15:02:34 WARNING: Backup discovery found no nodes. Add the server IP in Settings \u2192 Backup node IPs and try again.
+15:03:27 INFO: Backup disabled
+15:03:34 WARNING: Backup discovery found no nodes. Add the server IP in Settings \u2192 Backup node IPs and try again.
+15:08:42 INFO: Backup disabled
+15:08:49 WARNING: Backup discovery found no nodes. Add the server IP in Settings \u2192 Backup node IPs and try again.
+15:09:28 INFO: Settings saved and applied
+15:09:30 INFO: Backup disabled
+15:09:35 WARNING: Backup discovery found no nodes. Add the server IP in Settings \u2192 Backup node IPs and try again.
+15:11:15 INFO: Backup disabled
+15:11:21 WARNING: Backup discovery found no nodes. Add the server IP in Settings \u2192 Backup node IPs and try again.
+15:17:21 INFO: Backup disabled
+15:17:27 WARNING: Backup discovery found no nodes. Add the server IP in Settings \u2192 Backup node IPs and try again.
+15:17:27 INFO: Settings saved and applied
+15:17:49 INFO: Application closed
+15:45:11 INFO: Backup disabled
+15:45:23 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+15:45:23 INFO: File watcher active on E:/
+15:45:23 INFO: Drives confirmed: ['E:/', 'F:/']
+15:45:23 INFO: Backup nodes found: ['172.18.105.5']
+15:45:45 INFO: Backup disabled
+15:45:47 INFO: Application closed

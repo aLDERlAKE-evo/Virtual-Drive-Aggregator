@@ -1027,13 +1027,21 @@ class App:
             self._log("Backup disabled")
 
     def _discover_backup(self):
-        found = self.backup_client.discover()
+        # Pass manually configured IPs so they are checked even if
+        # auto-discovery scans the wrong subnet (e.g. on VMs / VPNs).
+        extra = list(self.cfg.backup_nodes)
+        found = self.backup_client.discover(extra_ips=extra)
         def upd():
             if found:
                 self._backup_status.set(f"Backup: {len(found)} node(s)")
-                self._log(f"Backup nodes: {found}")
+                self._log(f"Backup nodes found: {found}")
             else:
                 self._backup_status.set("Backup: OFFLINE")
+                self._log(
+                    "Backup discovery found no nodes. "
+                    "Add the server IP in Settings → Backup node IPs and try again.",
+                    level="warning",
+                )
         self.root.after(0, upd)
 
     def _refresh_server_worker(self):
@@ -1185,6 +1193,14 @@ class App:
             pass
         if self.splitter:
             self._build_splitter()
+        # Sync manually-entered backup nodes into the client immediately
+        # so the user doesn't have to restart to pick up new IPs.
+        with self.backup_client._lock:
+            merged = list({
+                *self.backup_client.nodes,
+                *[ip.strip() for ip in cfg.backup_nodes if ip.strip()],
+            })
+            self.backup_client.nodes = merged
         self._log("Settings saved and applied")
 
     def _toggle_theme(self):
