@@ -8582,3 +8582,111 @@
 15:45:23 INFO: Backup nodes found: ['172.18.105.5']
 15:45:45 INFO: Backup disabled
 15:45:47 INFO: Application closed
+15:49:58 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+15:49:58 INFO: File watcher active on E:/
+15:49:58 INFO: Drives confirmed: ['E:/', 'F:/']
+15:50:00 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+15:50:00 INFO: File watcher active on E:/
+15:50:00 INFO: Drives confirmed: ['E:/', 'F:/']
+15:50:30 INFO: Backup nodes found: ['172.18.105.5']
+15:52:56 INFO: Sending to backup node…
+15:54:10 INFO: Uploaded Invincible.S04e03.I.Gotta.Get.Some.Air.1080P.Hindi.English.Esubs.Vegamovies.is.mkv \u2192 2 part(s)
+15:55:01 INFO: Backup disabled
+15:55:03 INFO: Application closed
+15:57:01 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (1 entries)
+15:57:01 INFO: File watcher active on E:/
+15:57:01 INFO: Drives confirmed: ['E:/', 'F:/']
+15:57:14 INFO: Backup nodes found: ['172.18.105.5']
+15:57:26 INFO: Sending to backup node…
+15:57:26 INFO: Uploaded Admit Card.pdf \u2192 2 part(s)
+15:59:15 INFO: Purge All completed
+15:59:18 INFO: Backup disabled
+15:59:19 INFO: Application closed
+15:59:50 INFO: Backup nodes found: ['172.18.105.5']
+16:00:13 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+16:00:13 INFO: File watcher active on E:/
+16:00:13 INFO: Drives confirmed: ['E:/', 'F:/']
+16:00:16 INFO: Purge All completed
+16:00:43 INFO: Backup disabled
+16:00:45 INFO: Application closed
+16:01:58 INFO: Backup nodes found: ['172.18.105.5']
+16:02:02 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+16:02:02 INFO: File watcher active on E:/
+16:02:02 INFO: Drives confirmed: ['E:/', 'F:/']
+16:02:19 INFO: Sending to backup node…
+16:02:19 INFO: Uploaded entities.zip \u2192 2 part(s)
+16:06:07 INFO: Application closed
+17:34:12 INFO: Backup disabled
+17:38:48 INFO: Settings saved and applied
+18:20:49 WARNING: Drives disconnected: ['E:/', 'F:/']
+18:34:42 INFO: Application closed
+21:40:16 INFO: Application closed
+01:28:08 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (1 entries)
+01:28:08 INFO: File watcher active on E:/
+01:28:08 INFO: Drives confirmed: ['E:/', 'F:/']
+01:28:16 INFO: Purge All completed
+01:30:14 INFO: vdrive: no existing index found on any drive (first use or drives empty)
+01:30:14 INFO: File watcher active on E:/
+01:30:14 INFO: Drives confirmed: ['E:/', 'F:/']
+01:35:30 WARNING: Cancel requested
+01:35:38 WARNING: Upload cancelled: Deadpool 2016 2160p [4K] BluRay SDR [HINDI-ENG-5.1] 10bit HEVC - PeruGuy.mkv
+01:49:44 INFO: Purge All completed
+01:49:49 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+01:49:49 INFO: File watcher active on E:/
+01:49:49 INFO: Drives confirmed: ['E:/', 'F:/']
+01:50:43 INFO: Purge All completed
+01:50:50 INFO: Purge All completed
+01:50:53 WARNING: Cancel requested
+01:50:54 WARNING: Upload cancelled: Deadpool.2.2018.Super.Duper.Cut.1080p.Bluray.Hindi.English.Esubs.Vegamovies.to.mkv
+01:50:54 WARNING: Cancel requested
+01:50:59 INFO: Purge All completed
+03:03:01 INFO: Application closed
+19:46:55 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+19:46:55 INFO: File watcher active on E:/
+19:46:55 INFO: Drives confirmed: ['E:/', 'F:/']
+19:49:36 WARNING: Cancel requested
+19:49:37 WARNING: Upload cancelled: Crayon.Shin-chan.the.Movie.Super.Hot!.The.Spicy.Kasukabe.Dancers.(2025).1080p.BluRay.x264.Dual.Audio.Hindi.Japanese.-.Vegamovies.is.mkv
+19:49:40 INFO: Purge All completed
+19:51:03 WARNING: Cancel requested
+19:51:04 WARNING: Upload cancelled: Deadpool 2016 2160p [4K] BluRay SDR [HINDI-ENG-5.1] 10bit HEVC - PeruGuy.mkv
+19:51:06 INFO: Purge All completed
+19:52:07 INFO: Application closed
+20:00:25 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+20:00:25 INFO: File watcher active on E:/
+20:00:25 INFO: Drives confirmed: ['E:/', 'F:/']
+20:00:38 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+20:00:38 INFO: File watcher active on E:/
+20:00:38 INFO: Drives confirmed: ['E:/', 'F:/']
+20:04:05 INFO: User paused
+20:04:09 INFO: User resumed
+20:05:17 INFO: Uploaded Crayon.Shin-chan.the.Movie.Super.Hot!.The.Spicy.Kasukabe.Dancers.(2025).1080p.BluRay.x264.Dual.Audio.Hindi.Japanese.-.Vegamovies.is.mkv \u2192 2 part(s)
+20:05:26 INFO: Application closed
+08:41:06 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (1 entries)
+08:41:06 INFO: File watcher active on E:/
+08:41:06 INFO: Drives confirmed: ['E:/', 'F:/']
+08:41:06 WARNING: Backup discovery found no nodes. Add the server IP in Settings \u2192 Backup node IPs and try again.
+08:41:37 INFO: Backup disabled
+08:41:39 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+08:41:39 INFO: File watcher active on E:/
+08:41:39 INFO: Drives confirmed: ['E:/', 'F:/']
+08:42:33 ERROR: Drive write error: [Errno 22] Invalid argument
+08:42:34 WARNING: Drives disconnected: ['E:/']
+08:42:42 INFO: Drives connected: ['E:/']
+08:42:42 INFO: All selected drives reconnected — reloading index
+08:42:42 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (1 entries)
+08:42:42 ERROR: Drive write error: [Errno 22] Invalid argument
+08:42:45 INFO: User resumed
+08:43:06 INFO: User resumed
+08:45:06 INFO: Purge All completed
+08:46:43 INFO: Application closed
+08:46:46 ERROR: Task error: main thread is not in main loop
+08:47:02 INFO: vdrive: index loaded from E:/.vdrive_meta\index.json (0 entries)
+08:47:02 INFO: File watcher active on E:/
+08:47:02 INFO: Drives confirmed: ['E:/', 'F:/']
+08:48:16 INFO: User paused
+08:48:20 INFO: User resumed
+08:48:24 INFO: User paused
+08:48:29 INFO: User resumed
+08:48:42 INFO: User paused
+08:48:43 WARNING: Cancel requested
+08:48:44 WARNING: Upload cancelled: Crayon.Shin-chan.the.Movie.Super.Hot!.The.Spicy.Kasukabe.Dancers.(2025).1080p.BluRay.x264.Dual.Audio.Hindi.Japanese.-.Vegamovies.is.mkv
